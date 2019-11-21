@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">Unibar</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_barmap">Barmap</string>
+    <string name="title_activity_sign_in">Sign In</string>
     <string name="sign_in">Sign in</string>
     <string name="sign_out">Sign out</string>
     <string name="sign_up">Sign up</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="email">E-mail</string>
+    <string name="dont_have_a_user">Dont have a user? Click here to sign up!</string>
 
 </resources>

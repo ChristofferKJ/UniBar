@@ -9,15 +9,16 @@
     android:orientation="vertical"
     android:paddingLeft="24dp"
     android:paddingTop="56dp"
-    android:paddingRight="24dp">
+    android:paddingRight="24dp"
+    android:background="@color/orange">
 
     <ImageView
         android:id="@+id/imageViewLogo"
-        android:layout_width="match_parent"
-        android:layout_height="215dp"
+        android:layout_width="307dp"
+        android:layout_height="121dp"
         android:layout_marginBottom="32dp"
-        android:contentDescription="TESTER LIGE HER"
-        app:srcCompat="@drawable/unibarlogo-narrow" />
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/unibarlogo_narrow" />
 
     <EditText
         android:id="@+id/editTextUsername"
@@ -51,5 +52,13 @@
         android:paddingTop="8dp"
         android:paddingRight="8dp"
         android:text="@string/sign_in" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:text="@string/dont_have_a_user"
+        android:gravity="center"/>
 
 </LinearLayout>
