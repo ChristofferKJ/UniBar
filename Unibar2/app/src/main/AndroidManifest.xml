@@ -32,7 +32,7 @@
 
         <activity
             android:name=".activities.LoginActivity"
-            android:label="@string/title_sign_in"
+            android:label="@string/sign_in"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,6 +40,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="@string/title_main_activity"
+            />
 
     </application>
 

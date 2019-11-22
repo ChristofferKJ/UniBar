@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Unibar</string>
-    <string name="title_barmap">Barmap</string>
+    <string name="title_login">Login</string>
+    <string name="title_main_activity">Unibar</string>
     <string name="title_sign_in">Sign In</string>
     <string name="title_sign_up">Sign Up</string>
     <string name="sign_in">Sign in</string>
