@@ -1,16 +1,14 @@
 package com.group25.unibar.activities;
 
-import android.app.Activity;
 import android.os.Bundle;
-
+import androidx.appcompat.app.AppCompatActivity;
 import com.group25.unibar.R;
 
-public class SignInActivity extends Activity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
-
+        setContentView(R.layout.login_nav_host);
     }
 }

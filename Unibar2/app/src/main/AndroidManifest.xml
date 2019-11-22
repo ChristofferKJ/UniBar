@@ -31,8 +31,9 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".activities.SignInActivity"
-            android:label="@string/title_activity_sign_in">
+            android:name=".activities.LoginActivity"
+            android:label="@string/title_sign_in"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,9 +41,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".activities.BarMapActivity"
-            android:label="@string/title_activity_barmap"/>
     </application>
 
 </manifest>

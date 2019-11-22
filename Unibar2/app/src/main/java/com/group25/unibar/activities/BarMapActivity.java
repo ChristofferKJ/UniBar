@@ -17,7 +17,8 @@ public class BarMapActivity extends FragmentActivity implements OnMapReadyCallba
     private GoogleMap mMap;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bar_map);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -26,23 +27,23 @@ public class BarMapActivity extends FragmentActivity implements OnMapReadyCallba
         mapFragment.getMapAsync(this);
     }
 
-
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(GoogleMap googleMap)
+    {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng TheoBar = new LatLng(56.17212200, 10.20329030);
+        LatLng KOMMAbar = new LatLng(56.17302510,10.20448570);
+        LatLng FRED = new LatLng(56.17282200,10.20622490);
+        LatLng Fredagsbar = new LatLng(56.17118420,10.19021480);
+
+        LatLng Aarhus = new LatLng(56.162939,10.203921);
+
+        mMap.addMarker(new MarkerOptions().position(TheoBar).title("Theobar"));
+        mMap.addMarker(new MarkerOptions().position(KOMMAbar).title("Kommabar"));
+        mMap.addMarker(new MarkerOptions().position(FRED).title("FRED"));
+        mMap.addMarker(new MarkerOptions().position(Fredagsbar).title("Fredagsbar.dk"));
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Aarhus, 12.0f));
     }
 }

@@ -1,12 +1,14 @@
 <resources>
     <string name="app_name">Unibar</string>
-    <string name="title_activity_barmap">Barmap</string>
-    <string name="title_activity_sign_in">Sign In</string>
+    <string name="title_barmap">Barmap</string>
+    <string name="title_sign_in">Sign In</string>
+    <string name="title_sign_up">Sign Up</string>
     <string name="sign_in">Sign in</string>
     <string name="sign_out">Sign out</string>
     <string name="sign_up">Sign up</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
     <string name="email">E-mail</string>
     <string name="dont_have_a_user">Dont have a user? Click here to sign up!</string>
     <string name="ProfileName_profileInfo">Mock faculty</string>
@@ -14,5 +16,14 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="choose_faculty">Choose faculty</string>
+
+    <string-array name="faculty_arrays">
+        <item>Science and Technology</item>
+        <item>Health</item>
+        <item>Arts</item>
+        <item>Aarhus BSS</item>
+    </string-array>
+
 
 </resources>
