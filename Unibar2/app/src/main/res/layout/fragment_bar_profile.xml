@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical" android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout">
+
+                <ImageView
+                    android:id="@+id/imageView_barImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/primaryColor"
+                    android:contentDescription="@string/bar_image"
+                    app:layout_constraintBottom_toTopOf="@+id/textView_BarName"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:srcCompat="@drawable/unibarlogo_narrow" />
+
+                <TextView
+                    android:id="@+id/textView_BarName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/bar_name_placeholder"
+                    android:textSize="21sp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView_DescriptionLabel"
+                    app:layout_constraintStart_toStartOf="@+id/imageView_barImage"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView_barImage" />
+
+                <TextView
+                    android:id="@+id/textView_DescriptionLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bar_description_label"
+                    app:layout_constraintBottom_toTopOf="@+id/textView_Description"
+                    app:layout_constraintStart_toStartOf="@+id/textView_BarName"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_BarName" />
+
+                <TextView
+                    android:id="@+id/textView_Description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lorem_ipsum"
+                    app:layout_constraintBottom_toTopOf="@+id/textView_ReviewLabel"
+                    app:layout_constraintStart_toStartOf="@+id/textView_DescriptionLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_DescriptionLabel" />
+
+                <TextView
+                    android:id="@+id/textView_ReviewLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/bar_review_label"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textView_Description"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_Description" />
+
+                        <!-- TODO: INSERT REVIEWFRAGMENT HERE -->
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutButtons"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                    android:weightSum="2.0">
+
+                        <Button
+                            android:id="@+id/button_Review"
+                            android:layout_width="128dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/button_review_label"
+                            android:layout_weight="1.0"
+                            />
+
+                        <Button
+                            android:id="@+id/button_CheckIn"
+                            android:layout_width="128dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/button_check_in_label"
+                            android:layout_weight="1.0"
+                            />
+                </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

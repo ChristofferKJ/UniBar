@@ -39,8 +39,6 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         sign_in.setOnClickListener(this);
         sign_up.setOnClickListener(this);
 
-
-
         return v;
     }
 
