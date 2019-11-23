@@ -42,11 +42,15 @@ public class BarProfileFragment extends Fragment implements View.OnClickListener
         switch (view.getId()) {
             case R.id.button_Review:
                 Log.d("BarProfileFragment", "Review Pressed");
+                CreateReviewDialogFragment dialog = new CreateReviewDialogFragment();
+                dialog.show(getFragmentManager(), "CreateReviewDialogFragment");
 
                 break;
 
             case R.id.button_CheckIn:
                 Log.d("BarProfileFragment", "Check In Pressed");
+
+                // TODO: Create check in functionality
 
                 break;
 

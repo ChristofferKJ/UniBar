@@ -34,10 +34,9 @@
     <string name="bar_name_placeholder">Bar name</string>
     <string name="bar_description_label">Description</string>
     <string name="bar_review_label">Reviews</string>
-    <string name="button_review_label">Review</string>
+    <string name="review_label">Review</string>
     <string name="button_check_in_label">Check in</string>
-
-
+    <string name="write_review">Write a review for this bar</string>
 
 
     <!-- UserProfile -->
