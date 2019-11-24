@@ -10,12 +10,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import com.group25.unibar.R;
 
-public class MarkerBarFragment extends DialogFragment{
+public class MarkerBarDialog extends DialogFragment{
 
-    public MarkerBarFragment() { }
+    public MarkerBarDialog() { }
 
-    public static MarkerBarFragment newInstance(String barName) {
-        MarkerBarFragment frag = new MarkerBarFragment();
+    public static MarkerBarDialog newInstance(String barName) {
+        MarkerBarDialog frag = new MarkerBarDialog();
         Bundle args = new Bundle();
         args.putString("barName", barName);
         frag.setArguments(args);
@@ -25,7 +25,7 @@ public class MarkerBarFragment extends DialogFragment{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.map_marker_bar_dialogfragment, container);
+        View v = inflater.inflate(R.layout.dialog_map_marker_bar, container);
         TextView textviewTitle = v.findViewById(R.id.barviewTitle);
         textviewTitle.setText(getArguments().getString("barName"));
         return v;

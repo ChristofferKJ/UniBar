@@ -1,4 +1,4 @@
-package com.group25.unibar.Fragments;
+package com.group25.unibar.Fragments.DialogFragments;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -16,7 +16,7 @@ import com.group25.unibar.R;
 
 
 // https://developer.android.com/reference/android/app/DialogFragment
-public class CreateReviewDialogFragment extends DialogFragment implements View.OnClickListener {
+public class CreateReviewDialog extends DialogFragment implements View.OnClickListener {
 
     Button reviewButton;
     RatingBar ratingBarStars;

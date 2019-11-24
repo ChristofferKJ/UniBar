@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.group25.unibar.Fragments.DialogFragments.CreateReviewDialog;
 import com.group25.unibar.R;
 
 public class BarProfileFragment extends Fragment implements View.OnClickListener {
@@ -42,8 +43,8 @@ public class BarProfileFragment extends Fragment implements View.OnClickListener
         switch (view.getId()) {
             case R.id.button_Review:
                 Log.d("BarProfileFragment", "Review Pressed");
-                CreateReviewDialogFragment dialog = new CreateReviewDialogFragment();
-                dialog.show(getFragmentManager(), "CreateReviewDialogFragment");
+                CreateReviewDialog dialog = new CreateReviewDialog();
+                dialog.show(getFragmentManager(), "CreateReviewDialog");
 
                 break;
 
