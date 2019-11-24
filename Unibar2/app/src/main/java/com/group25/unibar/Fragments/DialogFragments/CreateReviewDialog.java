@@ -37,6 +37,17 @@ public class CreateReviewDialog extends DialogFragment implements View.OnClickLi
 
         reviewButton.setOnClickListener(this);
 
+
+        // https://www.mkyong.com/android/android-rating-bar-example/
+        ratingBarStars.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            public void onRatingChanged(RatingBar ratingBar, float rating,
+                                        boolean fromUser) {
+                Log.d("CreateReviewDialog", "Rating is: " + rating);
+
+            }
+        });
+
+
         return v;
     }
 

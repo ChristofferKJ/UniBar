@@ -1,22 +1,35 @@
 package com.group25.unibar.models;
 
+import java.util.ArrayList;
+
 public class BarInfo {
 
     private String id;
     private String description;
     private String barName;
+    private ArrayList<Review> reviews;
+    private String image_url;
 
-    private int thumbnail;
 
-    public BarInfo (String id, String description, String barName, int thumbnail){
+    public BarInfo() {
+        this.id = "default";
+        this.description = "Lorem Ipsum";
+        this.barName = "Barname";
+        this.reviews = new ArrayList<>();
+        this.image_url = "";
+    }
+
+    // Constructor
+    public BarInfo(String id, String description, String barName, String image_url) {
         this.id = id;
         this.description = description;
         this.barName = barName;
-        this.thumbnail = thumbnail;
+        this.reviews = reviews;
+        this.image_url = image_url;
     }
 
-    /// Getter and setters
 
+    /// Getters and setters
     public String getId() {
         return id;
     }
@@ -41,12 +54,20 @@ public class BarInfo {
         this.description = description;
     }
 
-    public int getThumbnail() {
-        return thumbnail;
+
+    public ArrayList<Review> getReviews() {
+        return reviews;
     }
 
-    public void setThumbnail(int thumbnail) {
-        this.thumbnail = thumbnail;
+    public void setReviews(ArrayList<Review> reviews) {
+        this.reviews = reviews;
     }
 
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
+    }
 }

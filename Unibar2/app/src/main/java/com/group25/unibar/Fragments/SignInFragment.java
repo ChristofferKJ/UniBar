@@ -59,12 +59,9 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
 
             case R.id.textViewSignUp:
                 Log.d("SignInFragment", "Sign Up Pressed");
-                //NavDirections action =
-                //       SpecifyAmountFragmentDirections.actionSignInActivityToSignUpActivity();
-                //Fragment fragmentById = getSupportFragmentManager().findFragmentById(R.id.login_nav_host);
-                //SignInFragment.findNavController(fragmentById).navigate(action);
-                Navigation.findNavController(view).navigate(R.id.signUpFragment);
-                //Navigation.findNavController(view).navigate(action);
+
+                Navigation.findNavController(view).navigate(R.id.action_signInFragment_to_signUpActivity);
+
 
                 break;
 

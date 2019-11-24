@@ -54,7 +54,7 @@ public class BarInfoAdapter extends RecyclerView.Adapter<BarInfoAdapter.BarInfoV
         holder.description.setText(bar.getDescription());
 
         // loading bar image using Glide library
-        Glide.with(mContext).load(bar.getThumbnail()).into(holder.barImage);
+        Glide.with(mContext).load(bar.getImage_url()).into(holder.barImage);
 
         holder.barImage.setOnClickListener(view -> Log.d("Debug", "onClick: "));
     }
