@@ -17,6 +17,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="choose_faculty">Choose faculty</string>
+    <string name="favoritebarlist_profileinfo">Favorite Bars!</string>
 
     <string-array name="faculty_arrays">
         <item>Science and Technology</item>

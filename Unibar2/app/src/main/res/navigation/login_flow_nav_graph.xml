@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/signInFragment">
+    app:startDestination="@id/profileInfoFragment">
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.group25.unibar.Fragments.SignUpFragment"
@@ -18,4 +18,9 @@
             android:id="@+id/action_signInFragment_to_signUpActivity2"
             app:destination="@+id/signUpFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/profileInfoFragment"
+        android:name="com.group25.unibar.Fragments.ProfileInfoFragment"
+        android:label="fragment_profile_info"
+        tools:layout="@layout/fragment_profile_info" />
 </navigation>

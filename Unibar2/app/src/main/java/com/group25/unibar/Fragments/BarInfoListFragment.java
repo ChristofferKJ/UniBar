@@ -5,33 +5,39 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.group25.unibar.R;
+import com.group25.unibar.adapter.BarInfoAdapter;
+import com.group25.unibar.models.BarInfo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 ///**
 // * A simple {@link Fragment} subclass.
 // * Activities that contain this fragment must implement the
-// * {@link ProfileInfoFragment./OnFragmentInteractionListener} interface
+// * {@link BarInfoListFragment.OnFragmentInteractionListener} interface
 // * to handle interaction events.
-// * Use the {@link ProfileInfoFragment#newInstance} factory method to
+// * Use the {@link BarInfoListFragment#newInstance} factory method to
 // * create an instance of this fragment.
 // */
-public class ProfileInfoFragment extends Fragment {
+public class BarInfoListFragment extends Fragment {
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    List<BarInfo> barInfoList;
 
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    ImageView profilePic;
 
 //    private OnFragmentInteractionListener mListener;
 
-    public ProfileInfoFragment() {
+    public BarInfoListFragment() {
         // Required empty public constructor
     }
 
@@ -39,11 +45,11 @@ public class ProfileInfoFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @return A new instance of fragment ProfileInfoFragment.
+     * @return A new instance of fragment BarInfoListFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProfileInfoFragment newInstance() {
-        ProfileInfoFragment fragment = new ProfileInfoFragment();
+    public static BarInfoListFragment newInstance() {
+        BarInfoListFragment fragment = new BarInfoListFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -52,17 +58,25 @@ public class ProfileInfoFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        barInfoList = new ArrayList<>();
+        barInfoList.add(new BarInfo("1","Description","Bar1",R.drawable.billede));
+        barInfoList.add(new BarInfo("2","Description","Rarbar",R.drawable.billede));
+        barInfoList.add(new BarInfo("3","Description","Barbar",R.drawable.billede));
+        barInfoList.add(new BarInfo("4","Description","BedsteBar",R.drawable.billede));
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_bar_info_list, container, false);
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        BarInfoAdapter barInfoAdapter = new BarInfoAdapter(getContext(), barInfoList);
 
-        View view = inflater.inflate(R.layout.fragment_profile_info, container, false);
-        profilePic = view.findViewById(R.id.ProfileImage_profileInfo);
-        profilePic.setImageResource(R.drawable.billede);
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
+        recyclerView.setLayoutManager(layoutManager);
+
+        recyclerView.setAdapter(barInfoAdapter);
         return view;
     }
 
