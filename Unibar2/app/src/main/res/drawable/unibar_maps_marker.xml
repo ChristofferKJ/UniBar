@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<item >
+
+    <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+        android:src="@drawable/unibar_maps_marker_png"
+        android:gravity="center"
+        >
+
+    </bitmap>
+</item>
+</selector>
+
