@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
 import androidx.fragment.app.DialogFragment;
 
@@ -16,6 +19,9 @@ import com.group25.unibar.R;
 public class CreateReviewDialogFragment extends DialogFragment implements View.OnClickListener {
 
     Button reviewButton;
+    RatingBar ratingBarStars;
+    TextView barName;
+    EditText barReviewText;
 
 
     @Override
@@ -25,6 +31,9 @@ public class CreateReviewDialogFragment extends DialogFragment implements View.O
         View v =  inflater.inflate(R.layout.dialog_create_review, container, false);
 
         reviewButton = v.findViewById(R.id.buttonReview);
+        ratingBarStars = v.findViewById(R.id.ratingBar);
+        barName = v.findViewById(R.id.textViewBarName);
+        barReviewText = v.findViewById(R.id.editTextBarReview);
 
         reviewButton.setOnClickListener(this);
 
