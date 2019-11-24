@@ -8,12 +8,12 @@
         android:id="@+id/signUpFragment"
         android:name="com.group25.unibar.Fragments.SignUpFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/activity_sign_up" />
+        tools:layout="@layout/fragment_sign_up" />
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.group25.unibar.Fragments.SignInFragment"
         android:label="fragment_sign_in"
-        tools:layout="@layout/activity_sign_in">
+        tools:layout="@layout/fragment_sign_in">
         <action
             android:id="@+id/action_signInFragment_to_signUpActivity2"
             app:destination="@+id/signUpFragment" />

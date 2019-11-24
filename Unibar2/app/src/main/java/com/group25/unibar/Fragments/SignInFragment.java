@@ -1,5 +1,6 @@
 package com.group25.unibar.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.group25.unibar.R;
+import com.group25.unibar.activities.MainActivity;
 
 public class SignInFragment extends Fragment implements View.OnClickListener {
 
@@ -26,7 +28,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v =  inflater.inflate(R.layout.activity_sign_in, container, false);
+        View v =  inflater.inflate(R.layout.fragment_sign_in, container, false);
 
         email = v.findViewById(R.id.editTextUsername);
         password = v.findViewById(R.id.editTextPassword);
@@ -37,8 +39,6 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         sign_in.setOnClickListener(this);
         sign_up.setOnClickListener(this);
 
-
-
         return v;
     }
 
@@ -48,6 +48,13 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.buttonSignIn:
                 Log.d("SignInFragment", "Sign In Pressed");
+
+                // TODO: Make login logic here
+
+                Intent myIntent = new Intent(getActivity(), MainActivity.class);
+
+                startActivityForResult(myIntent, 1);
+
                 break;
 
             case R.id.textViewSignUp:
