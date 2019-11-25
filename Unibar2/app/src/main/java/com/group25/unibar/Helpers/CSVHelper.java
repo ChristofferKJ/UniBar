@@ -36,6 +36,8 @@ public class CSVHelper {
             tempBar.Name = barStrings[0];
             tempBar.Latitude = Float.valueOf(barStrings[1]);
             tempBar.Longitude = Float.valueOf(barStrings[2]);
+            tempBar.ImageUrl = barStrings[3];
+
             bars.add(tempBar);
         }
 

@@ -7,4 +7,5 @@ public class Bar implements Serializable {
     public String Name;
     public Float Latitude;
     public Float Longitude;
+    public String ImageUrl;
 }

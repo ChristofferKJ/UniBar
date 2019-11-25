@@ -32,9 +32,7 @@ public class BarProfileFragment extends Fragment implements View.OnClickListener
 
         reviewButton.setOnClickListener(this);
         checkInButton.setOnClickListener(this);
-        Log.d("BarProfileFragment", "TEST");
 
-        // Inflate the layout for this fragment
         return v;
     }
 
