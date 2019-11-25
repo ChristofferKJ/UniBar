@@ -22,7 +22,7 @@
     <string name="confirm_password">Confirm password</string>
     <string name="email">E-mail</string>
     <string name="dont_have_a_user">Dont have a user? Click here to sign up!</string>
-    <string name="favoritebarlist_profileinfo">Favorite Bars!</string>
+    <string name="favoritebarlist_barlist">Favorite Bars!</string>
 
     <string-array name="faculty_arrays">
         <item>Science and Technology</item>
@@ -48,6 +48,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="choose_faculty">Choose faculty</string>
+
+
+    <!-- Tabs -->
+    <string name="MapTab">Map</string>
+    <string name="ListTab">List</string>
+
 
 
 </resources>

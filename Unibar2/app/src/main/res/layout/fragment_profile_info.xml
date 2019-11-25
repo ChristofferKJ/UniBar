@@ -54,12 +54,19 @@
 
         </LinearLayout>
 
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_margin="5dp"
+            android:background="?android:attr/listDivider" />
+
         <TextView
-            android:id="@+id/favoriteBar_textview_profileInfoFragment"
+            android:id="@+id/favoriteBar_textview_profileinfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/favoritebarlist_profileinfo"
+            android:text="@string/favoritebarlist_barlist"
             android:textSize="18sp" />
 
         <fragment

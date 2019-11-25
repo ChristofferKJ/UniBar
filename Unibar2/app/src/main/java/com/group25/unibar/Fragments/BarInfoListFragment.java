@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +18,7 @@ import android.view.ViewGroup;
 import com.group25.unibar.R;
 import com.group25.unibar.adapter.BarInfoAdapter;
 import com.group25.unibar.models.BarInfo;
+import com.group25.unibar.viewmodels.BarItemViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +36,7 @@ public class BarInfoListFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     List<BarInfo> barInfoList;
+    private BarItemViewModel viewModel;
 
 
 //    private OnFragmentInteractionListener mListener;
@@ -63,6 +67,9 @@ public class BarInfoListFragment extends Fragment {
         barInfoList.add(new BarInfo("2","Description","Rarbar",R.drawable.billede));
         barInfoList.add(new BarInfo("3","Description","Barbar",R.drawable.billede));
         barInfoList.add(new BarInfo("4","Description","BedsteBar",R.drawable.billede));
+        viewModel = ViewModelProviders.of(getActivity()).get(BarItemViewModel.class);
+
+
     }
 
     @Override
@@ -72,6 +79,7 @@ public class BarInfoListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_bar_info_list, container, false);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         BarInfoAdapter barInfoAdapter = new BarInfoAdapter(getContext(), barInfoList);
+
 
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
