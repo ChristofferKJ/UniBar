@@ -171,19 +171,21 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onMapClick(LatLng latLng) {
 
-                mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-                    @Override
-                    public boolean onMarkerClick(Marker marker) {
-                        slideup_panel.setPanelHeight(120);
-                        slideup_barname.setText(marker.getTitle());
-                        return false;
-                    }
-                });
+
 
                     slideup_panel.setPanelHeight(0);
             }
         });
 
+
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                slideup_panel.setPanelHeight(150);
+                slideup_barname.setText(marker.getTitle());
+                return false;
+            }
+        });
 
     }
 
