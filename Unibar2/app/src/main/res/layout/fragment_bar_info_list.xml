@@ -9,15 +9,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/primaryLightColor">
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical"
-            android:background="@color/primaryLightColor"/>
+            android:background="@color/primaryLightColor"
+            android:scrollbars="vertical" />
+
     </LinearLayout>
 
 
