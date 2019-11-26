@@ -10,10 +10,14 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.group25.unibar.R;
+import com.group25.unibar.models.BarInfo;
 import com.group25.unibar.models.Review;
+import com.group25.unibar.viewmodels.BarItemViewModel;
 
 
 // https://developer.android.com/reference/android/app/DialogFragment
@@ -25,6 +29,16 @@ public class CreateReviewDialog extends DialogFragment implements View.OnClickLi
     TextView barName;
     EditText barReviewText;
 
+    private BarItemViewModel viewModel;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel = ViewModelProviders.of(this.getActivity()).get(BarItemViewModel.class);
+        viewModel.getSelected().observe(this, item -> {
+            displayDetails(item);
+        });
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,7 +52,6 @@ public class CreateReviewDialog extends DialogFragment implements View.OnClickLi
         barReviewText = v.findViewById(R.id.editTextBarReview);
 
         reviewButton.setOnClickListener(this);
-
 
         // https://www.mkyong.com/android/android-rating-bar-example/
         ratingBarStars.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
@@ -74,5 +87,10 @@ public class CreateReviewDialog extends DialogFragment implements View.OnClickLi
                 break;
 
         }
+    }
+
+    public void displayDetails(BarInfo bar){
+        barName.setText(bar.getBarName());
+
     }
 }

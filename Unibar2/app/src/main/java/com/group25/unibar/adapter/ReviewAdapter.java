@@ -12,7 +12,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.group25.unibar.R;
 import com.group25.unibar.models.Review;
 
@@ -50,14 +49,11 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
     @Override
     public void onBindViewHolder(@NonNull ReviewViewHolder holder, int position) {
         Review review = reviewList.get(position);
-        Log.d("TEST", review.getUsername().toString());
-        Log.d("TEST", review.getDescription().toString());
+
         holder.userName.setText(review.getUsername());
         holder.description.setText(review.getDescription());
         holder.ratingBar.setRating(review.getRating());
 
-        // loading userimage using Glide library
-        //Glide.with(mContext).load(review.getImage_url()).into(holder.userImage);
     }
 
 
