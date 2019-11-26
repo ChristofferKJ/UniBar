@@ -13,11 +13,13 @@ import android.widget.TextView;
 import androidx.fragment.app.DialogFragment;
 
 import com.group25.unibar.R;
+import com.group25.unibar.models.Review;
 
 
 // https://developer.android.com/reference/android/app/DialogFragment
 public class CreateReviewDialog extends DialogFragment implements View.OnClickListener {
 
+    Review review = new Review();
     Button reviewButton;
     RatingBar ratingBarStars;
     TextView barName;
@@ -43,6 +45,7 @@ public class CreateReviewDialog extends DialogFragment implements View.OnClickLi
             public void onRatingChanged(RatingBar ratingBar, float rating,
                                         boolean fromUser) {
                 Log.d("CreateReviewDialog", "Rating is: " + rating);
+                review.setRating(rating);
 
             }
         });
@@ -55,8 +58,19 @@ public class CreateReviewDialog extends DialogFragment implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttonReview:
-                Log.d("CreateReviewDialogFrag", "Review Pressed");
+                Log.d("CreateReviewDialogFrag", "Creating a review!");
 
+                review.setDescription(barReviewText.getText().toString());
+                review.setBar(barName.getText().toString());
+                // TODO: Get the current user and insert it here
+                review.setUsername("Festaben");
+
+                Log.d("CreateReviewDialogFrag", "Review for bar:" + review.getBar());
+                Log.d("CreateReviewDialogFrag", "Review Description:" + review.getDescription());
+                Log.d("CreateReviewDialogFrag", "Review Rating:" + review.getRating());
+                Log.d("CreateReviewDialogFrag", "Review made by:" + review.getUsername());
+
+                dismiss();
                 break;
 
         }
