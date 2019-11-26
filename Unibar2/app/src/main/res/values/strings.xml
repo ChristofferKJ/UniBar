@@ -19,6 +19,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="choose_faculty">Choose faculty</string>
 
+    <!--Facebook -->
+    <string name="facebook_app_id">779131162527402</string>
+    <string name="fb_login_protocol_scheme">fb779131162527402</string>
+    <string name="facebook_sign_in">Sign in with Facebook</string>
+
+
     <string-array name="faculty_arrays">
         <item>Science and Technology</item>
         <item>Health</item>
