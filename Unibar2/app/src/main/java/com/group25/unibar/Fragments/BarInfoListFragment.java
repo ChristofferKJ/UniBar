@@ -62,11 +62,11 @@ public class BarInfoListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        barInfoList = new ArrayList<>();
-        barInfoList.add(new BarInfo("1","Description","Bar1",R.drawable.billede));
-        barInfoList.add(new BarInfo("2","Description","Rarbar",R.drawable.billede));
-        barInfoList.add(new BarInfo("3","Description","Barbar",R.drawable.billede));
-        barInfoList.add(new BarInfo("4","Description","BedsteBar",R.drawable.billede));
+        barInfoList = new ArrayList<>(); // TODO insert bars
+        barInfoList.add(new BarInfo("1","Description","Bar1",R.drawable.billede, 7.5));
+        barInfoList.add(new BarInfo("2","Description","Rarbar",R.drawable.billede, 3.7));
+        barInfoList.add(new BarInfo("3","Description","Barbar",R.drawable.billede, 10.0));
+        barInfoList.add(new BarInfo("4","Description","BedsteBar",R.drawable.billede, 5.1));
         viewModel = ViewModelProviders.of(getActivity()).get(BarItemViewModel.class);
 
 

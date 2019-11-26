@@ -18,7 +18,7 @@
             android:minHeight="?actionBarSize"
             app:tabBackground="@color/primaryColor"
             app:tabGravity="fill"
-            app:tabIndicatorColor="@color/cardview_light_background"
+            app:tabIndicatorColor="@color/primaryDarkColor"
             app:tabIndicatorHeight="4dp"
             app:tabMode="fixed" />
 

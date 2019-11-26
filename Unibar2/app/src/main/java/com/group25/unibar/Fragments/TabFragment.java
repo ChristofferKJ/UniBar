@@ -4,9 +4,12 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +32,8 @@ public class TabFragment extends Fragment {
 
     // TODO: Rename and change types of parameters
     private String mParam1;
+    ViewPager viewPager;
+    TabAdapter adapter;
 
 
 //    private OnFragmentInteractionListener mListener;
@@ -56,40 +61,52 @@ public class TabFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-       View view = inflater.inflate(R.layout.fragment_tab, container, false);
-       TabLayout tabLayout = (TabLayout)view.findViewById(R.id.tab_layout);
-       tabLayout.addTab(tabLayout.newTab().setText((R.string.MapTab)));
-       tabLayout.addTab(tabLayout.newTab().setText(R.string.ListTab));
-
-       tabLayout.getTabAt(0).setIcon(R.drawable.unibar_maps_marker);
-        tabLayout.getTabAt(1).setIcon(R.drawable.unibar_maps_marker);
-
-
-       final ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewPager);
-       final TabAdapter adapter = new TabAdapter
-               (getActivity().getSupportFragmentManager(), tabLayout.getTabCount());
-       viewPager.setAdapter(adapter);
-       viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-       tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-           @Override
-           public void onTabSelected(TabLayout.Tab tab) {
-               viewPager.setCurrentItem(tab.getPosition());
-           }
-           @Override
-           public void onTabUnselected(TabLayout.Tab tab) {
-           }
-           @Override
-           public void onTabReselected(TabLayout.Tab tab) {
-           }
-       });
-
-       return view;
+    public void onResume() {
+        super.onResume();
+        Log.d("Debug", "onResume: called in tabfragment");
     }
 
-//    // TODO: Rename method, update argument and hook method into UI event
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        Log.d("Debug", "onCreateView: called in tabfragment");
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_tab, container, false);
+        TabLayout tabLayout = (TabLayout)view.findViewById(R.id.tab_layout);
+        tabLayout.addTab(tabLayout.newTab().setText((R.string.MapTab)));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.ListTab));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.ProfileTab));
+
+        tabLayout.getTabAt(0).setIcon(R.drawable.map_icon);
+        tabLayout.getTabAt(1).setIcon(R.drawable.list_icon);
+        tabLayout.getTabAt(2).setIcon(R.drawable.profile_icon);
+
+
+        viewPager = (ViewPager) view.findViewById(R.id.viewPager);
+        adapter = new TabAdapter
+                (getActivity().getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(adapter);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                Log.d("Debug", "onTabReselected: tabfragment");
+            }
+        });
+
+        return view;
+    }
+
+
+    //    // TODO: Rename method, update argument and hook method into UI event
 //    public void onButtonPressed(Uri uri) {
 //        if (mListener != null) {
 //            mListener.onFragmentInteraction(uri);

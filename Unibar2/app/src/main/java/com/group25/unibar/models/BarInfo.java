@@ -5,14 +5,16 @@ public class BarInfo {
     private String id;
     private String description;
     private String barName;
+    private double rating;
 
     private int thumbnail;
 
-    public BarInfo (String id, String description, String barName, int thumbnail){
+    public BarInfo (String id, String description, String barName, int thumbnail, double rating){
         this.id = id;
         this.description = description;
         this.barName = barName;
         this.thumbnail = thumbnail;
+        this.rating = rating;
     }
 
     /// Getter and setters
@@ -47,6 +49,14 @@ public class BarInfo {
 
     public void setThumbnail(int thumbnail) {
         this.thumbnail = thumbnail;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
     }
 
 }

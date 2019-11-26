@@ -31,7 +31,7 @@ public class BarInfoAdapter extends RecyclerView.Adapter<BarInfoAdapter.BarInfoV
 
 
     public class BarInfoViewHolder extends RecyclerView.ViewHolder {
-        public TextView barName, description;
+        public TextView barName, description, barRating;
         public ImageView barImage;
 
         public BarInfoViewHolder(View view) {
@@ -39,6 +39,7 @@ public class BarInfoAdapter extends RecyclerView.Adapter<BarInfoAdapter.BarInfoV
             barName = (TextView) view.findViewById(R.id.barName_barInfoList);
             description = (TextView) view.findViewById(R.id.barDescription_barInfoList);
             barImage = (ImageView) view.findViewById(R.id.barImage_barInfoList);
+            barRating = (TextView) view.findViewById(R.id.barRating_barInfoList);
 
         }
     }
@@ -57,6 +58,7 @@ public class BarInfoAdapter extends RecyclerView.Adapter<BarInfoAdapter.BarInfoV
         BarInfo bar = barList.get(position);
         holder.barName.setText(bar.getBarName());
         holder.description.setText(bar.getDescription());
+        holder.barRating.setText(String.valueOf(bar.getRating()));
 
         // loading bar image using Glide library
         Glide.with(mContext).load(bar.getThumbnail()).into(holder.barImage);
@@ -64,7 +66,7 @@ public class BarInfoAdapter extends RecyclerView.Adapter<BarInfoAdapter.BarInfoV
         holder.itemView.setOnClickListener(view -> {
             Log.d("Debug", "onClick: you clicked bar with position " + position);
             viewModel.select(bar);
-            Navigation.findNavController(view).navigate(R.id.action_profileInfoFragment2_to_barProfileFragment2);
+            Navigation.findNavController(view).navigate(R.id.action_tabFragment_to_barProfileFragment); // TODO Navigate on aciton?
 
         });
 

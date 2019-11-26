@@ -51,8 +51,9 @@
 
 
     <!-- Tabs -->
-    <string name="MapTab">Map</string>
-    <string name="ListTab">List</string>
+    <string name="MapTab">Map view</string>
+    <string name="ListTab">Bar list</string>
+    <string name="ProfileTab">Profile</string>
 
 
 
