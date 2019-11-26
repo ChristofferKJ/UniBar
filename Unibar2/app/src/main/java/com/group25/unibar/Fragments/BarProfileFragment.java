@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.group25.unibar.Fragments.DialogFragments.CreateReviewDialog;
@@ -79,7 +77,6 @@ public class BarProfileFragment extends Fragment implements View.OnClickListener
     public void displayDetails(BarInfo bar){
         barName.setText(bar.getBarName());
         description.setText(bar.getDescription());
-        barImage.setImageResource(bar.getThumbnail());
 
     }
 }
