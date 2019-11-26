@@ -85,7 +85,7 @@ public class TabFragment extends Fragment {
 
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         adapter = new TabAdapter
-                (getActivity().getSupportFragmentManager(), tabLayout.getTabCount());
+                (getChildFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

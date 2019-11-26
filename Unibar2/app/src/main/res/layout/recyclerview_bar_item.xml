@@ -63,22 +63,6 @@
                 android:textColor="@color/primaryTextColor"
                 android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/barRating_barInfoList"
-                android:layout_width="128dp"
-                android:layout_height="63dp"
-                android:layout_below="@+id/barImage_barInfoList"
-                android:layout_alignParentBottom="true"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginStart="50dp"
-                android:layout_toRightOf="@id/barDescription_barInfoList"
-                android:text="TextView"
-                android:textColor="@color/primaryTextColor"
-                android:textSize="18sp" />
 
 
         </RelativeLayout>

@@ -39,7 +39,7 @@ public class BarInfoAdapter extends RecyclerView.Adapter<BarInfoAdapter.BarInfoV
             barName = (TextView) view.findViewById(R.id.barName_barInfoList);
             description = (TextView) view.findViewById(R.id.barDescription_barInfoList);
             barImage = (ImageView) view.findViewById(R.id.barImage_barInfoList);
-            barRating = (TextView) view.findViewById(R.id.barRating_barInfoList);
+            //barRating = (TextView) view.findViewById(R.id.barRating_barInfoList);
 
         }
     }
@@ -58,7 +58,7 @@ public class BarInfoAdapter extends RecyclerView.Adapter<BarInfoAdapter.BarInfoV
         BarInfo bar = barList.get(position);
         holder.barName.setText(bar.getBarName());
         holder.description.setText(bar.getDescription());
-        holder.barRating.setText(String.valueOf(bar.getRating()));
+        //holder.barRating.setText(String.valueOf(bar.getRating()));
 
         // loading bar image using Glide library
         Glide.with(mContext).load(bar.getImage_url()).into(holder.barImage);
