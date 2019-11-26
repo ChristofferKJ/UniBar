@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.group25.unibar.Fragments.BarInfoListFragment;
+import com.group25.unibar.Fragments.BarMapFragment;
 import com.group25.unibar.Fragments.ProfileInfoFragment;
 
 // Made with inspiration from https://developer.android.com/guide/navigation/navigation-swipe-view
@@ -24,7 +25,7 @@ public class TabAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0: // Insert map view fragment TODO
-                BarInfoListFragment mapFragment = new BarInfoListFragment();
+                BarMapFragment mapFragment = new BarMapFragment();
                 return mapFragment;
 
             case 1:

@@ -12,7 +12,7 @@
     <item
         android:id="@+id/searchBar_call"
         android:icon="@drawable/ic_search"
-        android:title="Search for bar"
+        android:title="Search for barName"
         android:iconTint="@color/primaryLightColor"
 
         />

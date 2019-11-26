@@ -76,11 +76,13 @@ public class CreateReviewDialog extends DialogFragment implements View.OnClickLi
                     Log.d("CreateReviewDialog", "Creating a review!");
 
                     review.setDescription(barReviewText.getText().toString());
-                    review.setBar(barName.getText().toString());
+                    review.setBarName(barName.getText().toString());
                     // TODO: Get the current user and insert it here
                     review.setUsername("Festaben");
 
-                    Log.d("CreateReviewDialog", "Review for bar:" + review.getBar());
+                    // TODO: Make a HTTPPut to put the review onto the database
+
+                    Log.d("CreateReviewDialog", "Review for bar:" + review.getBarName());
                     Log.d("CreateReviewDialog", "Review Description:" + review.getDescription());
                     Log.d("CreateReviewDialog", "Review Rating:" + review.getRating());
                     Log.d("CreateReviewDialog", "Review made by:" + review.getUsername());

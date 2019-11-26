@@ -38,7 +38,6 @@ public class ReviewListFragment extends Fragment {
         reviewList.add(new Review(5.0f,"Mødte engang en chick her der jagtede mig med bare patter igennem hele Trøjborg, efter hun havde rystet sin puha for mig ","Nanorama", "Khristoffer Pikfjæs Jackobsen"));
         reviewList.add(new Review(4.0f,"Kæmpe fed bar mand, det her jeg går!","Katrines Kælder", "Simon Sjakbajs #1"));
 
-
         barItemViewModel = ViewModelProviders.of(this.getActivity()).get(BarItemViewModel.class);
         barItemViewModel.getSelected().observe(this, item -> {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -66,6 +65,6 @@ public class ReviewListFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void sortReviews(BarInfo bar){
         // Removes the reviews from the list, if the reviews are not for the specific bar. This could be optimized.
-        reviewList.removeIf(review -> review.getBar() != bar.getBarName());
+        reviewList.removeIf(review -> review.getBarName() != bar.getBarName());
     }
 }

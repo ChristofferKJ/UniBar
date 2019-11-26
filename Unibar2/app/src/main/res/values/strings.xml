@@ -38,7 +38,7 @@
     <string name="bar_review_label">Reviews</string>
     <string name="review_label">Review</string>
     <string name="button_check_in_label">Check in</string>
-    <string name="write_review">Write a review for this bar</string>
+    <string name="write_review">Write a review for this barName</string>
 
 
     <!-- UserProfile -->

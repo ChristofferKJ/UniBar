@@ -11,9 +11,11 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.group25.unibar.R;
 import com.group25.unibar.adapter.BarInfoAdapter;
@@ -21,6 +23,8 @@ import com.group25.unibar.models.BarInfo;
 import com.group25.unibar.viewmodels.BarItemViewModel;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
