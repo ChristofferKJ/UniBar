@@ -27,49 +27,61 @@
                     app:layout_constraintVertical_chainStyle="packed"
                     app:srcCompat="@drawable/unibarlogo_narrow" />
 
-                <TextView
-                    android:id="@+id/textView_BarName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="@string/bar_name_placeholder"
-                    android:textSize="21sp"
-                    app:layout_constraintBottom_toTopOf="@+id/textView_DescriptionLabel"
-                    app:layout_constraintStart_toStartOf="@+id/imageView_barImage"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView_barImage" />
+                        <TextView
+                            android:id="@+id/textView_BarName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="@string/bar_name_placeholder"
+                            android:textSize="21sp"
+                            app:layout_constraintBottom_toTopOf="@+id/textView_DescriptionLabel"
+                            app:layout_constraintStart_toStartOf="@+id/imageView_barImage"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView_barImage" />
 
-                <TextView
-                    android:id="@+id/textView_DescriptionLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/bar_description_label"
-                    app:layout_constraintBottom_toTopOf="@+id/textView_Description"
-                    app:layout_constraintStart_toStartOf="@+id/textView_BarName"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_BarName" />
+                        <TextView
+                            android:id="@+id/textView_DescriptionLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:text="@string/bar_description_label"
+                            app:layout_constraintBottom_toTopOf="@+id/textView_Description"
+                            app:layout_constraintStart_toStartOf="@+id/textView_BarName"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_BarName" />
 
-                <TextView
-                    android:id="@+id/textView_Description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/lorem_ipsum"
-                    app:layout_constraintBottom_toTopOf="@+id/textViewReviewLabel"
-                    app:layout_constraintStart_toStartOf="@+id/textView_DescriptionLabel"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_DescriptionLabel" />
+                        <TextView
+                            android:id="@+id/textView_Description"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:text="@string/lorem_ipsum"
+                            app:layout_constraintBottom_toTopOf="@+id/textViewReviewLabel"
+                            app:layout_constraintStart_toStartOf="@+id/textView_DescriptionLabel"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_DescriptionLabel" />
 
-                <TextView
-                    android:id="@+id/textViewReviewLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/bar_review_label"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/textView_Description"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_Description" />
+                        <TextView
+                            android:id="@+id/textViewReviewLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="4dp"
+                            android:text="@string/bar_review_label"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/textView_Description"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_Description" />
 
-                        <!-- TODO: INSERT REVIEWFRAGMENT HERE -->
-
-
+                        <fragment
+                            android:id="@+id/reviewListInBarProfileFragment"
+                            android:name="com.group25.unibar.Fragments.ReviewListFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="141dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp" />
                 </LinearLayout>
 
                 <LinearLayout

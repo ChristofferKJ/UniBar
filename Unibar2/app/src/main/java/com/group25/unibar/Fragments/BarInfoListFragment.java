@@ -62,14 +62,11 @@ public class BarInfoListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        barInfoList = new ArrayList<>(); // TODO insert bars
-        barInfoList.add(new BarInfo("1","Description","Bar1",R.drawable.billede, 7.5));
-        barInfoList.add(new BarInfo("2","Description","Rarbar",R.drawable.billede, 3.7));
-        barInfoList.add(new BarInfo("3","Description","Barbar",R.drawable.billede, 10.0));
-        barInfoList.add(new BarInfo("4","Description","BedsteBar",R.drawable.billede, 5.1));
-        viewModel = ViewModelProviders.of(getActivity()).get(BarItemViewModel.class);
-
-
+        barInfoList = new ArrayList<>();
+        barInfoList.add(new BarInfo("1","Description","TÅGEKAMMERET", "https://scontent-arn2-1.xx.fbcdn.net/v/t31.0-8/s960x960/1401917_773244319357255_365398689_o.png?_nc_cat=111&_nc_ohc=_zAtfv6ZVsMAQkHNBIsAPcisDisCcPAQFfzjvAnRiKg3E8KVDI6AqrYJA&_nc_ht=scontent-arn2-1.xx&oh=2c2ee0858100d974b0da46abd2f6b706&oe=5E4D3E68", 1.0));
+        barInfoList.add(new BarInfo("2","Description","Die Rote Zone", "https://scontent-arn2-1.xx.fbcdn.net/v/t31.0-8/p960x960/1412749_733196930113613_5373507156254861526_o.jpg?_nc_cat=104&_nc_ohc=J-Kpn_TqcJ0AQnX6pNm5RKRMpToREVPyvRZ8QpWGXSVBPC4zeYQrxVDFw&_nc_ht=scontent-arn2-1.xx&oh=c8ba13562b73ccf71f7f9d074fa39a43&oe=5E457C57", 1.0));
+        barInfoList.add(new BarInfo("3","Description","Nanorama", "http://inano.au.dk/fileadmin/_processed_/csm_nanorama_db51505ed2.png",1.0));
+        barInfoList.add(new BarInfo("4","Description","Katrines Kælder", "https://scontent-arn2-2.xx.fbcdn.net/v/t1.0-9/13166_441233562611984_1450333570_n.png?_nc_cat=105&_nc_ohc=_lg3n-TStKUAQlqdJpCYGfpZMn3-e2VO3Qaahv2mqPSMyhOtWTqMi4NSQ&_nc_ht=scontent-arn2-2.xx&oh=153a3d397ac5e74a0a4589375e4b49e7&oe=5E4049DD", 1.0));
     }
 
     @Override

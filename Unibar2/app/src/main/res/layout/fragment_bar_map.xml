@@ -1,18 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.sothree.slidinguppanel.SlidingUpPanelLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:umanoDragView="@id/dragview"
+    android:gravity="bottom"
+    app:umanoFadeColor="@android:color/transparent"
+    app:umanoShadowHeight="10dp"
+    app:umanoPanelHeight="0dp"
+    android:id="@+id/barmap_sliding_up_panel"
+    >
 
 
+
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Fragments.BarMapFragment" />
+        tools:context=".Fragments.BarMapFragment"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <io.github.yavski.fabspeeddial.FabSpeedDial
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|top"
+        android:layout_margin="20dp"
+        app:fabGravity="top_end"
+        app:fabMenu="@menu/menu_barmap_fab"
+        app:miniFabDrawableTint="@color/primaryColor"
+        app:fabBackgroundTint="@color/primaryColor"
+        android:id="@+id/barmap_fab"
+        />
+
+
+</FrameLayout>
+    <LinearLayout
+
+        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/dragview"
+        android:background="@drawable/barmap_slider_shape"
+        android:clickable="true"
+        android:focusable="false"
+        >
+
+            <TextView
+                android:fontFamily="monospace"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/slideup_barname"/>
+
+    </LinearLayout>
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>

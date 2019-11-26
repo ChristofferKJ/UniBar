@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import com.group25.unibar.R;
 
+
 public class MarkerBarDialog extends DialogFragment{
 
     public MarkerBarDialog() { }

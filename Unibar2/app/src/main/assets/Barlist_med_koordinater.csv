@@ -1,34 +1,34 @@
-﻿BARNAVNE;Latitude;Longitude
-Theos Bar;56.172121;10.205478
-KOMMAbar;56.173026;10.206673
-FRED;56.172825;10.206224
-FredagsBar.dk;56.171185;10.192404
-Symposion/KLUD bar;56.171981;10.205599
-Pod Stolom;56.170298;10.205087
-Penta Rei;56.173082;10.203552
-Den Stive Buddha;56.16814;10.203012
-Esperanto;56.172917;10.205651
-Kasernebaren;56.167036;10.196381
-Barbaren;56.085386;10.219867
-ARABAR;56.172891;10.204381
-Eforen;56.168936;10.199262
-Studenterbaren;56.171486;10.20043
-Studentercaféen;56.171301;10.200321
-Stakladen;56.17156;10.199638
-Klubben;56.162238;10.182448
-Klub.Ling;56.172667;10.205624
-Økonomisk Forening;56.162239;10.182447
-Samfundsfaglig Fredagsbar;56.162239;10.182447
-Umbilicius;56.168231;10.201873
-Siffos;56.16774;10.201983
-Apollonia;56.164237;10.206041
-Kalkulerbar;56.166452;10.198698
-Fysisk Fredagsbar;56.167447;10.198571
-Fredagscaféen;56.17163;10.189882
-Alkymia Kemisk Fredagsbar;56.16818;10.199418
-Biologisk Fredagsbar;56.166702;10.203111
-Katrines Kælder;56.171988;10.191489
-Nanorama;56.168762;10.196933
-TÅGEKAMMERET;56.166478;10.20003
-Die Rote Zone;56.167783;10.200937
-Dyrkbar;56.172883;10.191502
+﻿BARNAVNE;Latitude;Longitude;ImageUrl
+Theos Bar;56.172121;10.205478;https://scontent-arn2-2.xx.fbcdn.net/v/t1.0-9/12963924_1083801914995362_7433369356168463387_n.jpg?_nc_cat=100&_nc_ohc=kQsHC7J0B2sAQlnJK9Q_jANoRx5TMdPKvWw4lMDtmsD5a7TR65ox-p02A&_nc_ht=scontent-arn2-2.xx&oh=5a2403af275dfc5ecb09086e282b3849&oe=5E4F0ECA
+KOMMAbar;56.173026;10.206673;https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/17201432_1487543171266241_7538455482339041168_n.png?_nc_cat=110&_nc_ohc=X_Hps3SuQygAQmKJ91mO8rYU9RX500nMpMt02mCAvtNd6DsxwCWIRq_Gg&_nc_ht=scontent-arn2-1.xx&oh=286acb66c44cc6cd4d7debbab7332722&oe=5E883F7A
+FRED;56.172825;10.206224;https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/1382262_444689088976945_101847950_n.jpg?_nc_cat=101&_nc_ohc=AKikLD8HscIAQm3X4s7ndStrEW5CVlMU7ZFLrwuZujmkllnbVKQlT3aEQ&_nc_ht=scontent-arn2-1.xx&oh=07043231ff6f8ed8fe99f61b67130d4e&oe=5E8005E1
+FredagsBar.dk;56.171185;10.192404;http://fredagsbar.dk/wp-content/uploads/2016/08/cropped-cropped-logo-2.png
+Symposion/KLUD bar;56.171981;10.205599;https://scontent-arn2-2.xx.fbcdn.net/v/t1.0-9/10155052_222919854568357_6989860196035607266_n.jpg?_nc_cat=108&_nc_ohc=ErndPYDBRLYAQnCH1Q_FYqmaB0nJacSRdAOTpaIcNu-56xa5jO3T3l37Q&_nc_ht=scontent-arn2-2.xx&oh=436c4833d34738483fecceb5764c81ae&oe=5E46E411
+Pod Stolom;56.170298;10.205087;https://scontent-arn2-2.xx.fbcdn.net/v/t1.0-9/10366019_251539185051192_1507883370005375529_n.jpg?_nc_cat=105&_nc_ohc=eZxHIbke4ToAQkKfsx5_XH0fE1PaC0bZnF2HQ9Gx0gu3_7I1zLRjgQZGQ&_nc_ht=scontent-arn2-2.xx&oh=6352f90b539c3a1041778b612dfbd683&oe=5E877757
+Penta Rei;56.173082;10.203552;https://scontent-arn2-2.xx.fbcdn.net/v/t1.0-9/486414_406235512773561_1289263967_n.jpg?_nc_cat=108&_nc_ohc=vs6Xj6faE24AQkpjabsN6eHPym1VNRGE_KhZ0U8EVOjCZ69oK6jAKIprw&_nc_ht=scontent-arn2-2.xx&oh=55a993260abefc8a1a049e810be4cd06&oe=5E822536
+Den Stive Buddha;56.16814;10.203012;http://pngimg.com/uploads/buddha/buddha_PNG23.png
+Esperanto;56.172917;10.205651;https://scontent-arn2-1.xx.fbcdn.net/v/t31.0-8/p960x960/1926162_552012588231400_1859112614_o.jpg?_nc_cat=101&_nc_ohc=Ng_rSs6Wi4oAQkJwkeBi3TlfzNH8XD2jGB9ra2sRrarO4G5T9_ycuIBwg&_nc_ht=scontent-arn2-1.xx&oh=3a8d35388f2772e1a67091e90a3d9c4c&oe=5E420593
+Kasernebaren;56.167036;10.196381;https://scontent-arn2-1.xx.fbcdn.net/v/t31.0-8/11838770_10153574456544194_4886341896629479848_o.jpg?_nc_cat=102&_nc_ohc=tfUsTWvAhLUAQnwG9w59K5l_QTJTerJSmm_VTpkpBcQzebvw6F_R_Ovkw&_nc_ht=scontent-arn2-1.xx&oh=7c98ad85bdb3bb0ede14e9a8a88a2d3e&oe=5E49391D
+Barbaren;56.085386;10.219867;https://scontent-arn2-1.xx.fbcdn.net/v/t31.0-8/1277047_545068112231353_1491612803_o.jpg?_nc_cat=110&_nc_ohc=9AbEu848ENYAQn1DEKt9jdOmW8nEPQ8m9cvnXaoVBadZi8EWtldqEhSlA&_nc_ht=scontent-arn2-1.xx&oh=5d57ef2f6d217bc89374a05120b77534&oe=5E8D13B6
+ARABAR;56.172891;10.204381;https://scontent-arn2-2.xx.fbcdn.net/v/t1.0-9/75258480_3264493033577892_7133173876669808640_n.jpg?_nc_cat=100&_nc_ohc=mhbq199guFwAQkytDS3qETKzk-IzGcikG816bF1OJ_yLlESQqNVYOy6Ew&_nc_ht=scontent-arn2-2.xx&oh=c755360f40a33a1f67601eaf8ff57650&oe=5E49DE40
+Eforen;56.168936;10.199262;https://scontent-arn2-2.xx.fbcdn.net/v/t1.0-9/44332945_10161470757545355_6814325855485952000_n.jpg?_nc_cat=105&_nc_ohc=cC0TfoYY-IkAQn3O51wSrBBDSdEDaR9B4cAVxwBgdpxSCXna0c8OuNoMw&_nc_ht=scontent-arn2-2.xx&oh=e7dec2e2662b0ebcaf0e1547561e62c3&oe=5E486BE2
+Studenterbaren;56.171486;10.20043;https://scontent-arn2-1.xx.fbcdn.net/v/t31.0-8/p960x960/18422571_1881952918496825_5473072842537907828_o.jpg?_nc_cat=111&_nc_ohc=s-EhWYwty-0AQlov8KEsJJv9zlbIfLOH4R2HlDgBdsMKj-9Ee_1AhbcEQ&_nc_ht=scontent-arn2-1.xx&oh=bd7e6d82f4a97e1b8693601412af572c&oe=5E7B30D8
+Studentercaféen;56.171301;10.200321;https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/p960x960/74301510_2498357916880456_5409898298750271488_o.png?_nc_cat=106&_nc_ohc=DXCDNkWKOF8AQkHw7sTh12pIWNiC02Ge3HcZ_eduF0z0DnN4At8BaC9NQ&_nc_ht=scontent-arn2-1.xx&oh=ed8e15d253ce7c0539f294be6ec45853&oe=5E466923
+Stakladen;56.17156;10.199638;https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/p960x960/74301510_2498357916880456_5409898298750271488_o.png?_nc_cat=106&_nc_ohc=DXCDNkWKOF8AQkHw7sTh12pIWNiC02Ge3HcZ_eduF0z0DnN4At8BaC9NQ&_nc_ht=scontent-arn2-1.xx&oh=ed8e15d253ce7c0539f294be6ec45853&oe=5E466923
+Klubben;56.162238;10.182448;https://scontent-arn2-2.xx.fbcdn.net/v/t1.0-9/p960x960/69774966_2553554978000389_1050189589148336128_o.png?_nc_cat=105&_nc_ohc=3eer8v-SGgUAQlQv2f74KzUtL5CKglrHbW3ksRKVZwxvRyMZ0frUm8xQg&_nc_ht=scontent-arn2-2.xx&oh=fab5a8f2f1cbf69984c6cb3db81d2c39&oe=5E3EF2AD
+Klub.Ling;56.172667;10.205624;https://pano.enirocdn.com/panorender/render?lon=10.2056313&lat=56.1726189&w=728&h=315
+Økonomisk Forening;56.162239;10.182447;https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/10358868_504974476306070_2623248459063130662_n.jpg?_nc_cat=102&_nc_ohc=wNCzHFppsCEAQlY8qvmL_3X4dcurZDvlQKw3jz95PoRzlddQvVH1Blo4A&_nc_ht=scontent-arn2-1.xx&oh=374bca5231b02d91ec91fc6fc024fe8b&oe=5E7A1F4F
+Samfundsfaglig Fredagsbar;56.162239;10.182447;https://scontent-arn2-2.xx.fbcdn.net/v/t1.0-9/26220023_496962460697189_4976766157069223924_n.jpg?_nc_cat=100&_nc_ohc=MWYkNNMpHfsAQlf1dBTjloT7irVT5iMERXznhKl0QsdhT9mWe7LwBsEWA&_nc_ht=scontent-arn2-2.xx&oh=8aa1799c308dc8dda1ec409ea437faa5&oe=5E7E65DE
+Umbilicius;56.168231;10.201873;https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/71783166_3290973270943466_4783377799941455872_n.png?_nc_cat=101&_nc_ohc=YQlQsPsO2MAAQkQlAszV13DVqut8jQyhfgpDgvyRqdJi1SPrk-rUXOMeQ&_nc_ht=scontent-arn2-1.xx&oh=cb9e9756b4bf35a3c9d75380b7a9f6ab&oe=5E47A7B0
+Siffos;56.16774;10.201983;https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/p960x960/71769351_2532210553521222_7592014814973526016_o.png?_nc_cat=111&_nc_ohc=hNTELHQhL28AQmYe9DJ2veOU3qzoJQP1EShFJcs4J8QhYrwI06XrfREuQ&_nc_ht=scontent-arn2-1.xx&oh=a073407e767051358c95eb6f7835177b&oe=5E88DCAD
+Apollonia;56.164237;10.206041;https://scontent-arn2-2.xx.fbcdn.net/v/t1.0-9/14570265_1662770480700230_7347859945356554075_n.png?_nc_cat=108&_nc_ohc=D0jbC79AGcMAQncy2jJxAlnu_PZmGrzGJJt4SfTtXAt1yjSPb7xUYh0WQ&_nc_ht=scontent-arn2-2.xx&oh=3b138a82b1c8ac7e23a5433e5a9f1c21&oe=5E44FEDC
+Kalkulerbar;56.166452;10.198698;https://scontent-arn2-2.xx.fbcdn.net/v/t1.0-9/16995936_677121719163140_888208191144400532_n.jpg?_nc_cat=100&_nc_ohc=xW2WwKv-HdYAQmkU-iA2NO19GRQHVAsnTUB9CZpNvG0s3envPsIF1KUeQ&_nc_ht=scontent-arn2-2.xx&oh=ba7eab4a9ac6dfc852f25c6d6758f486&oe=5E4B6E47
+Fysisk Fredagsbar;56.167447;10.198571;https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/379417_249721241756129_1140937397_n.jpg?_nc_cat=101&_nc_ohc=fuXuovdngFgAQkGy5usjfGWGP-1kZEnBKYXomzxyAonbmOvAN2wr09JEA&_nc_ht=scontent-arn2-1.xx&oh=d046c1a83085c18c7ea3246371bb2245&oe=5E853BD7
+Fredagscaféen;56.17163;10.189882;https://scontent-arn2-1.xx.fbcdn.net/v/t31.0-8/p960x960/21741337_1585804654792038_6069416727451789592_o.png?_nc_cat=107&_nc_ohc=djChMP9CneQAQkBHK_95mbfhu_uf1y9ZZn_qJ3naaLgpfECJkFCwPkJvQ&_nc_ht=scontent-arn2-1.xx&oh=6d0209c6cdf6530396992df039bc793e&oe=5E449686
+Alkymia Kemisk Fredagsbar;56.16818;10.199418;https://scontent-arn2-1.xx.fbcdn.net/v/t31.0-8/s960x960/615792_103336749821454_1739435849_o.jpg?_nc_cat=101&_nc_ohc=rg8Gim8jescAQk7A5Gyol9le5ulnpnZAit-hwdfQ2a8C_TU-hUWVGmPVw&_nc_ht=scontent-arn2-1.xx&oh=7a191598fb6693d6c84ba70f8f612cb2&oe=5E8C074A
+Biologisk Fredagsbar;56.166702;10.203111;https://scontent-arn2-2.xx.fbcdn.net/v/t1.0-9/42996896_367937467366123_2316163811331014656_n.png?_nc_cat=100&_nc_ohc=mi_V93TG18MAQkKuMHy49XduyWjohMDLcqw_HrRJbKjxXE6dcg0pthtaA&_nc_ht=scontent-arn2-2.xx&oh=c483b8246613ca2e6674f6d7c0b69971&oe=5E4D1CFA
+Katrines Kælder;56.171988;10.191489;https://scontent-arn2-2.xx.fbcdn.net/v/t1.0-9/13166_441233562611984_1450333570_n.png?_nc_cat=105&_nc_ohc=_lg3n-TStKUAQlqdJpCYGfpZMn3-e2VO3Qaahv2mqPSMyhOtWTqMi4NSQ&_nc_ht=scontent-arn2-2.xx&oh=153a3d397ac5e74a0a4589375e4b49e7&oe=5E4049DD
+Nanorama;56.168762;10.196933;http://inano.au.dk/fileadmin/_processed_/csm_nanorama_db51505ed2.png
+TÅGEKAMMERET;56.166478;10.20003;https://scontent-arn2-1.xx.fbcdn.net/v/t31.0-8/s960x960/1401917_773244319357255_365398689_o.png?_nc_cat=111&_nc_ohc=_zAtfv6ZVsMAQkHNBIsAPcisDisCcPAQFfzjvAnRiKg3E8KVDI6AqrYJA&_nc_ht=scontent-arn2-1.xx&oh=2c2ee0858100d974b0da46abd2f6b706&oe=5E4D3E68
+Die Rote Zone;56.167783;10.200937;https://scontent-arn2-1.xx.fbcdn.net/v/t31.0-8/p960x960/1412749_733196930113613_5373507156254861526_o.jpg?_nc_cat=104&_nc_ohc=J-Kpn_TqcJ0AQnX6pNm5RKRMpToREVPyvRZ8QpWGXSVBPC4zeYQrxVDFw&_nc_ht=scontent-arn2-1.xx&oh=c8ba13562b73ccf71f7f9d074fa39a43&oe=5E457C57
+Dyrkbar;56.172883;10.191502;https://aarhusupdate.dk/wp-content/uploads/2013/02/Tordenskjoldsgade-p%C3%A5-Tr%C3%B8jborg-845x400.jpg

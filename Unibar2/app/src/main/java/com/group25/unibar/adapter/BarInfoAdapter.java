@@ -61,7 +61,7 @@ public class BarInfoAdapter extends RecyclerView.Adapter<BarInfoAdapter.BarInfoV
         holder.barRating.setText(String.valueOf(bar.getRating()));
 
         // loading bar image using Glide library
-        Glide.with(mContext).load(bar.getThumbnail()).into(holder.barImage);
+        Glide.with(mContext).load(bar.getImage_url()).into(holder.barImage);
 
         holder.itemView.setOnClickListener(view -> {
             Log.d("Debug", "onClick: you clicked bar with position " + position);
