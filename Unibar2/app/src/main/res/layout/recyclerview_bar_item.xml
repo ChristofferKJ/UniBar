@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -10,27 +11,27 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:elevation="5dp">
+        card_view:cardCornerRadius="3dp"
+        card_view:cardElevation="4dp"
+        card_view:cardUseCompatPadding="true">
+
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="284dp">
+            android:layout_height="284dp"
+            android:background="@color/primaryColor">
 
             <ImageView
                 android:id="@+id/barImage_barInfoList"
-                tools:src="@tools:sample/avatars[2]"
                 android:layout_width="387dp"
                 android:layout_height="201dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="5dp"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp"
-                android:clickable="true" />
+                tools:src="@tools:sample/avatars[2]" />
 
             <TextView
                 android:id="@+id/barName_barInfoList"
@@ -44,7 +45,8 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
                 android:text="TextView"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textColor="@color/primaryTextColor"/>
 
             <TextView
                 android:id="@+id/barDescription_barInfoList"
@@ -58,7 +60,25 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
                 android:text="TextView"
+                android:textColor="@color/primaryTextColor"
                 android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/barRating_barInfoList"
+                android:layout_width="128dp"
+                android:layout_height="63dp"
+                android:layout_below="@+id/barImage_barInfoList"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
+                android:layout_toRightOf="@id/barDescription_barInfoList"
+                android:text="TextView"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="18sp" />
 
 
         </RelativeLayout>

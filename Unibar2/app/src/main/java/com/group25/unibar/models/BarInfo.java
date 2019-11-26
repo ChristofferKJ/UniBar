@@ -7,6 +7,7 @@ public class BarInfo {
     private String id;
     private String description;
     private String barName;
+    private double rating;
     private ArrayList<Review> reviews;
     private String image_url;
 
@@ -20,12 +21,13 @@ public class BarInfo {
     }
 
     // Constructor
-    public BarInfo(String id, String description, String barName, String image_url) {
+    public BarInfo(String id, String description, String barName, String image_url, double rating) {
         this.id = id;
         this.description = description;
         this.barName = barName;
         this.reviews = reviews;
         this.image_url = image_url;
+        this.rating = rating;
     }
 
 
@@ -61,6 +63,14 @@ public class BarInfo {
 
     public void setReviews(ArrayList<Review> reviews) {
         this.reviews = reviews;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
     }
 
     public String getImage_url() {
