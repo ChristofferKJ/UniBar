@@ -1,5 +1,16 @@
 package com.group25.unibar.Fragments;
 
+import java.util.Arrays;
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
+import com.facebook.CallbackManager;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginManager;
+import com.group25.unibar.R;
+import com.group25.unibar.activities.MainActivity;
+import org.json.JSONException;
+import org.json.JSONObject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,32 +20,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
-import com.facebook.AccessToken;
-import com.facebook.AccessTokenTracker;
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
-import com.facebook.login.LoginManager;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
-import com.group25.unibar.R;
-import com.group25.unibar.activities.MainActivity;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.Arrays;
 
 public class SignInFragment extends Fragment implements View.OnClickListener {
     private static final String TAG = "SignInFragment";
-
     CallbackManager callbackManager;
     EditText email;
     EditText password;
@@ -139,10 +130,13 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
 
             case R.id.textViewSignUp:
                 Log.d("SignInFragment", "Sign Up Pressed");
-                Navigation.findNavController(view).navigate(R.id.signUpFragment);
+                Navigation.findNavController(view).navigate(R.id.action_signInFragment_to_signUpActivity);
                 break;
             case  R.id.buttonFacebookSignIn:
                 LoginManager.getInstance().logIn(this, Arrays.asList("public_profile"));
+
+
+
                 break;
 
         }
