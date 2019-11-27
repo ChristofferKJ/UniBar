@@ -4,7 +4,7 @@
     <string name="title_main_activity">Unibar</string>
     <string name="title_sign_in">Sign In</string>
     <string name="title_sign_up">Sign Up</string>
-    <string name="sign_in">Sign in</string>
+    <string name="sign_in">Sign in with UniBar</string>
     <string name="sign_out">Sign out</string>
     <string name="sign_up">Sign up</string>
     <string name="username">Username</string>

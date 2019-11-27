@@ -36,7 +36,6 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     private static final String TAG = "SignInFragment";
 
     CallbackManager callbackManager;
-
     EditText email;
     EditText password;
     Button sign_in;
@@ -61,29 +60,26 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         fb_login.setOnClickListener(this);
 
         //Facebook login callback
-
         callbackManager = CallbackManager.Factory.create();
-//        fb_login.setPermissions(Arrays.asList("public_profile"));
 
 
-        //LoginManager.getInstance().logIn(this, Arrays.asList("public_profile"));
-        LoginManager.getInstance().registerCallback(callbackManager,
-                new FacebookCallback<LoginResult>() {
-                    @Override
-                    public void onSuccess(LoginResult loginResult) {
-                        // App code
-                    }
-
-                    @Override
-                    public void onCancel() {
-                        // App code
-                    }
-
-                    @Override
-                    public void onError(FacebookException exception) {
-                        // App code
-                    }
-                });
+//            LoginManager.getInstance().registerCallback(callbackManager,
+//                new FacebookCallback<LoginResult>() {
+//                    @Override
+//                    public void onSuccess(LoginResult loginResult) {
+//                        // App code
+//                    }
+//
+//                    @Override
+//                    public void onCancel() {
+//                        // App code
+//                    }
+//
+//                    @Override
+//                    public void onError(FacebookException exception) {
+//                        // App code
+//                    }
+//                });
 
         return v;
     }
