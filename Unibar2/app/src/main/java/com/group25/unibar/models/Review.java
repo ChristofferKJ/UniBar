@@ -4,31 +4,31 @@ public class Review {
 
     private Float rating;
     private String description;
-    private String bar;
+    private String barName;
     private String username;
 
     // Constructor
     public Review() {
         this.rating = 0.0f;
         this.description = "";
-        this.bar = "";
+        this.barName = "";
         this.username = "";
     }
 
-    public Review(Float rating, String description, String bar, String username) {
+    public Review(Float rating, String description, String barName, String username) {
         this.rating = rating;
         this.description = description;
-        this.bar = bar;
+        this.barName = barName;
         this.username = username;
     }
 
     // Getters and setters
-    public String getBar() {
-        return bar;
+    public String getBarName() {
+        return barName;
     }
 
-    public void setBar(String bar) {
-        this.bar = bar;
+    public void setBarName(String barName) {
+        this.barName = barName;
     }
 
     public String getUsername() {

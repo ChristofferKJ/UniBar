@@ -1,5 +1,6 @@
 package com.group25.unibar.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.bumptech.glide.Glide;
 import com.group25.unibar.Fragments.DialogFragments.CreateReviewDialog;
 import com.group25.unibar.R;
 import com.group25.unibar.models.BarInfo;
@@ -70,7 +72,6 @@ public class BarProfileFragment extends Fragment implements View.OnClickListener
                 Log.d("BarProfileFragment", "Check In Pressed");
 
                 // TODO: Create check in functionality
-
                 break;
 
         }
@@ -79,6 +80,6 @@ public class BarProfileFragment extends Fragment implements View.OnClickListener
     public void displayDetails(BarInfo bar){
         barName.setText(bar.getBarName());
         description.setText(bar.getDescription());
-
+        Glide.with(getContext()).load(bar.getImage_url()).into(barImage);
     }
 }

@@ -10,10 +10,14 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.group25.unibar.R;
+import com.group25.unibar.models.BarInfo;
 import com.group25.unibar.models.Review;
+import com.group25.unibar.viewmodels.BarItemViewModel;
 
 
 // https://developer.android.com/reference/android/app/DialogFragment
@@ -25,6 +29,16 @@ public class CreateReviewDialog extends DialogFragment implements View.OnClickLi
     TextView barName;
     EditText barReviewText;
 
+    private BarItemViewModel viewModel;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel = ViewModelProviders.of(this.getActivity()).get(BarItemViewModel.class);
+        viewModel.getSelected().observe(this, item -> {
+            displayDetails(item);
+        });
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,7 +52,6 @@ public class CreateReviewDialog extends DialogFragment implements View.OnClickLi
         barReviewText = v.findViewById(R.id.editTextBarReview);
 
         reviewButton.setOnClickListener(this);
-
 
         // https://www.mkyong.com/android/android-rating-bar-example/
         ratingBarStars.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
@@ -58,21 +71,33 @@ public class CreateReviewDialog extends DialogFragment implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttonReview:
-                Log.d("CreateReviewDialogFrag", "Creating a review!");
+                // Checks if the user has given the bar a rating, otherwise dismisses the dialog.
+                if(review.getRating() != 0.0) {
+                    Log.d("CreateReviewDialog", "Creating a review!");
 
-                review.setDescription(barReviewText.getText().toString());
-                review.setBar(barName.getText().toString());
-                // TODO: Get the current user and insert it here
-                review.setUsername("Festaben");
+                    review.setDescription(barReviewText.getText().toString());
+                    review.setBarName(barName.getText().toString());
+                    // TODO: Get the current user and insert it here
+                    review.setUsername("Festaben");
 
-                Log.d("CreateReviewDialogFrag", "Review for bar:" + review.getBar());
-                Log.d("CreateReviewDialogFrag", "Review Description:" + review.getDescription());
-                Log.d("CreateReviewDialogFrag", "Review Rating:" + review.getRating());
-                Log.d("CreateReviewDialogFrag", "Review made by:" + review.getUsername());
+                    // TODO: Make a HTTPPut to put the review onto the database
+
+                    Log.d("CreateReviewDialog", "Review for bar:" + review.getBarName());
+                    Log.d("CreateReviewDialog", "Review Description:" + review.getDescription());
+                    Log.d("CreateReviewDialog", "Review Rating:" + review.getRating());
+                    Log.d("CreateReviewDialog", "Review made by:" + review.getUsername());
+                }else {
+                    Log.d("CreateReviewDialog", "No rating set. Dismissing the dialog without making a review.");
+                }
 
                 dismiss();
                 break;
 
         }
+    }
+
+    public void displayDetails(BarInfo bar){
+        barName.setText(bar.getBarName());
+
     }
 }
