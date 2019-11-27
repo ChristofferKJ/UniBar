@@ -19,6 +19,7 @@ import com.group25.unibar.Fragments.DialogFragments.CreateReviewDialog;
 import com.group25.unibar.R;
 import com.group25.unibar.models.BarInfo;
 import com.group25.unibar.viewmodels.BarItemViewModel;
+import com.group25.unibar.viewmodels.MapViewModel;
 
 public class BarProfileFragment extends Fragment implements View.OnClickListener {
 
@@ -36,6 +37,7 @@ public class BarProfileFragment extends Fragment implements View.OnClickListener
         viewModel.getSelected().observe(this, item -> {
             displayDetails(item);
         });
+
     }
 
     @Override
