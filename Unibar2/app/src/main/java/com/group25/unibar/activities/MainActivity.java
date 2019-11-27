@@ -9,8 +9,15 @@ import android.os.IBinder;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.group25.unibar.Db.BarsDb;
+import com.group25.unibar.Helpers.CSVHelper;
 import com.group25.unibar.R;
 import com.group25.unibar.Service.LocationProviderService;
+import com.group25.unibar.models.BarInfo;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +30,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_nav_host);
+
+        ArrayList<BarInfo> bars = new ArrayList<>();
+
+        CSVHelper csvHelper = new CSVHelper(this);
+        try {
+            bars = csvHelper.CsvToBars("Barlist_med_koordinater.csv");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        BarsDb.getInstance().set_barList(bars);
+
     }
 
     @Override

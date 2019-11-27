@@ -2,7 +2,7 @@ package com.group25.unibar.Helpers;
 
 import android.content.Context;
 
-import com.group25.unibar.models.Bar;
+import com.group25.unibar.models.BarInfo;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,9 +18,9 @@ public class CSVHelper {
         this.context = context;
     }
 
-    public ArrayList<Bar> CsvToBars(String filename) throws IOException {
+    public ArrayList<BarInfo> CsvToBars(String filename) throws IOException {
 
-        ArrayList<Bar> bars = new ArrayList<Bar>();
+        ArrayList<BarInfo> bars = new ArrayList<BarInfo>();
 
 
         InputStreamReader is = new InputStreamReader(context.getAssets().open(filename));
@@ -31,13 +31,12 @@ public class CSVHelper {
 
         while((line=reader.readLine()) != null)
         {
-            Bar tempBar = new Bar();
+            BarInfo tempBar = new BarInfo();
             String[] barStrings = line.split(";");
-            tempBar.Name = barStrings[0];
-            tempBar.Latitude = Float.valueOf(barStrings[1]);
-            tempBar.Longitude = Float.valueOf(barStrings[2]);
-            tempBar.ImageUrl = barStrings[3];
-
+            tempBar.setBarName(barStrings[0]);
+            tempBar.setLatitude(Float.valueOf(barStrings[1]));
+            tempBar.setLongitude(Float.valueOf(barStrings[2]));
+            tempBar.setImage_url(barStrings[3]);
             bars.add(tempBar);
         }
 
