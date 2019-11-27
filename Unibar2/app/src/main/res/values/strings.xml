@@ -22,7 +22,7 @@
     <string name="confirm_password">Confirm password</string>
     <string name="email">E-mail</string>
     <string name="dont_have_a_user">Dont have a user? Click here to sign up!</string>
-    <string name="favoritebarlist_profileinfo">Favorite Bars!</string>
+    <string name="favoritebarlist_barlist">Favorite Bars!</string>
 
     <string-array name="faculty_arrays">
         <item>Science and Technology</item>
@@ -38,7 +38,7 @@
     <string name="bar_review_label">Reviews</string>
     <string name="review_label">Review</string>
     <string name="button_check_in_label">Check in</string>
-    <string name="write_review">Write a review for this bar</string>
+    <string name="write_review">Write a review for this barName</string>
 
 
     <!-- UserProfile -->
@@ -49,6 +49,13 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="choose_faculty">Choose faculty</string>
     <string name="search_bar">Search bar..</string>
+
+
+    <!-- Tabs -->
+    <string name="MapTab">Map view</string>
+    <string name="ListTab">Bar list</string>
+    <string name="ProfileTab">Profile</string>
+
 
 
 </resources>

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b6c825f-c7cb-4e64-b412-5842ddb0838e" name="Default Changelist" comment="" />
+    <list default="true" id="9b6c825f-c7cb-4e64-b412-5842ddb0838e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Unibar2/app/src/main/java/com/group25/unibar/Fragments/DialogFragments/CreateReviewDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/Unibar2/app/src/main/java/com/group25/unibar/Fragments/DialogFragments/CreateReviewDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unibar2/app/src/main/java/com/group25/unibar/models/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/Unibar2/app/src/main/java/com/group25/unibar/models/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unibar2/app/src/main/res/navigation/main_flow_nav_graph.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Unibar2/app/src/main/res/navigation/main_flow_nav_graph.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,8 +16,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="38" />
-    <option name="y" value="392" />
+    <option name="x" value="36" />
     <option name="width" value="1136" />
     <option name="height" value="1047" />
   </component>
@@ -33,6 +36,19 @@
               <item name="UniBar" type="b2602c69:ProjectViewProjectNode" />
               <item name="UniBar" type="462c0819:PsiDirectoryNode" />
               <item name="Unibar2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UniBar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UniBar" type="462c0819:PsiDirectoryNode" />
+              <item name="Unibar2" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UniBar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UniBar" type="462c0819:PsiDirectoryNode" />
+              <item name="Unibar2" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -72,7 +88,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="38" y="392" width="1136" height="1047" extended-state="0" />
+    <frame x="36" y="0" width="1136" height="1047" extended-state="0" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.32969034" />

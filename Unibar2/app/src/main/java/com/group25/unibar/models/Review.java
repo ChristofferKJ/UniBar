@@ -2,26 +2,33 @@ package com.group25.unibar.models;
 
 public class Review {
 
-    private Double rating;
+    private Float rating;
     private String description;
-    private String bar;
+    private String barName;
     private String username;
 
     // Constructor
-    public Review(Double rating, String description, String bar, String username) {
+    public Review() {
+        this.rating = 0.0f;
+        this.description = "";
+        this.barName = "";
+        this.username = "";
+    }
+
+    public Review(Float rating, String description, String barName, String username) {
         this.rating = rating;
         this.description = description;
-        this.bar = bar;
+        this.barName = barName;
         this.username = username;
     }
 
     // Getters and setters
-    public String getBar() {
-        return bar;
+    public String getBarName() {
+        return barName;
     }
 
-    public void setBar(String bar) {
-        this.bar = bar;
+    public void setBarName(String barName) {
+        this.barName = barName;
     }
 
     public String getUsername() {
@@ -32,11 +39,11 @@ public class Review {
         this.username = username;
     }
 
-    public Double getRating() {
+    public Float getRating() {
         return rating;
     }
 
-    public void setRating(Double rating) {
+    public void setRating(Float rating) {
         this.rating = rating;
     }
 

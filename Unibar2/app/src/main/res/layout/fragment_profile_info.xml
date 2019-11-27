@@ -8,7 +8,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/primaryLightColor">
 
         <LinearLayout
             android:id="@+id/linearLayoutProfileInfo"
@@ -37,7 +38,8 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="5dp"
                     android:padding="5dp"
-                    android:text="@string/ProfileFaculty_profileInfo" />
+                    android:text="@string/ProfileFaculty_profileInfo"
+                    android:textColor="@color/primaryTextColor"/>
 
                 <TextView
                     android:id="@+id/ProfileName_profileInfo"
@@ -48,18 +50,27 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="5dp"
                     android:padding="5dp"
-                    android:text="@string/ProfileName_profileInfo" />
+                    android:text="@string/ProfileName_profileInfo"
+                    android:textColor="@color/primaryTextColor"/>
 
             </LinearLayout>
 
         </LinearLayout>
 
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_margin="5dp"
+            android:background="?android:attr/listDivider" />
+
         <TextView
-            android:id="@+id/favoriteBar_textview_profileInfoFragment"
+            android:id="@+id/favoriteBar_textview_profileinfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/favoritebarlist_profileinfo"
+            android:text="@string/favoritebarlist_barlist"
+            android:textColor="@color/primaryTextColor"
             android:textSize="18sp" />
 
         <fragment
