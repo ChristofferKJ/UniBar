@@ -1,17 +1,21 @@
 package com.group25.unibar.Fragments;
 
 import android.content.Context;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.group25.unibar.R;
+import com.group25.unibar.viewmodels.MapViewModel;
 
 
 ///**
@@ -28,7 +32,7 @@ public class ProfileInfoFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     ImageView profilePic;
-
+    TextView name, faculty;
 //    private OnFragmentInteractionListener mListener;
 
     public ProfileInfoFragment() {
@@ -49,9 +53,12 @@ public class ProfileInfoFragment extends Fragment {
         return fragment;
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
     }
 
@@ -62,9 +69,12 @@ public class ProfileInfoFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_profile_info, container, false);
         profilePic = view.findViewById(R.id.ProfileImage_profileInfo);
+        name = view.findViewById(R.id.ProfileName_profileInfo);
+        faculty = view.findViewById(R.id.ProfileFaculty_profileInfo);
         profilePic.setImageResource(R.drawable.billede);
         return view;
     }
+
 
 //    // TODO: Rename method, update argument and hook method into UI event
 //    public void onButtonPressed(Uri uri) {
