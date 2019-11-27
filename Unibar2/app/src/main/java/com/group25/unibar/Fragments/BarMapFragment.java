@@ -7,17 +7,24 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.slidingpanelayout.widget.SlidingPaneLayout;
 
+import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -35,6 +42,7 @@ import com.google.android.material.internal.NavigationMenu;
 import com.group25.unibar.Fragments.DialogFragments.MarkerBarDialog;
 import com.group25.unibar.Helpers.CSVHelper;
 import com.group25.unibar.R;
+import com.group25.unibar.adapter.BarmapAdapter;
 import com.group25.unibar.models.Bar;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
@@ -65,6 +73,9 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
     private FabSpeedDial fab;
     private SlidingUpPanelLayout slideup_panel;
     private Boolean night_mode_on;
+    private EditText editText_searchBar;
+    private ListView listView_bars;
+    private BarmapAdapter barmapAdapter;
 
     public BarMapFragment() { }
 
@@ -76,6 +87,15 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
         View rootView = inflater.inflate(R.layout.fragment_bar_map, container, false);
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        CSVHelper csvHelper = new CSVHelper(getContext());
+        try {
+            bars = csvHelper.CsvToBars("Barlist_med_koordinater.csv");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         return rootView;
     }
 
@@ -85,6 +105,11 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
 
         slideup_barname = getView().findViewById(R.id.slideup_barname);
         slideup_panel = getView().findViewById(R.id.barmap_sliding_up_panel);
+        editText_searchBar = getView().findViewById(R.id.barmap_searchbar);
+        listView_bars = getView().findViewById(R.id.listview_barnames);
+
+        barmapAdapter = new BarmapAdapter(getContext(), bars);
+        listView_bars.setAdapter(barmapAdapter);
 
         fab = (FabSpeedDial)getView().findViewById(R.id.barmap_fab);
     }
@@ -113,14 +138,6 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
                 .build();
 
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 500, null);
-
-        CSVHelper csvHelper = new CSVHelper(getContext());
-        try {
-            bars = csvHelper.CsvToBars("Barlist_med_koordinater.csv");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         bars.forEach((x) -> {
             mMap.addMarker(new MarkerOptions().position(new LatLng(x.Latitude, x.Longitude))
@@ -158,10 +175,11 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
                         }
 
                     case R.id.searchBar_call:
+
+                        slideup_panel.setPanelState(EXPANDED);
+                        editText_searchBar.requestFocus();
                         return true;
 
-                    case R.id.toUser_call:
-                        return true;
                 }
 
                 mMap.setOnInfoWindowCloseListener(new GoogleMap.OnInfoWindowCloseListener() {
@@ -180,6 +198,70 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
 
         });
 
+        listView_bars.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Bar tempBar = bars.get(position);
+
+                slideup_barname.setText(tempBar.Name);
+
+                LatLng tempbarLatLng = new LatLng(tempBar.Latitude, tempBar.Longitude);
+
+                CameraPosition cam = CameraPosition.builder()
+                        .target(tempbarLatLng)
+                        .zoom(18)
+                        .bearing(0)
+                        .build();
+
+                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cam), 500, null);
+
+            }
+        });
+
+
+        editText_searchBar.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                CSVHelper csvHelper = new CSVHelper(getContext());
+                try {
+                    bars.clear();
+                    bars.addAll(csvHelper.CsvToBars("Barlist_med_koordinater.csv"));
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                ArrayList<Bar> tempList = new ArrayList<Bar>();
+
+                for (Bar bar : bars)
+                {
+                    String s1 = bar.Name.toLowerCase();
+                    String s2 = s.toString().toLowerCase();
+
+                    if(s1.contains(s2))
+                        tempList.add(bar);
+
+                }
+
+                barmapAdapter.clear();
+                barmapAdapter.addAll(tempList);
+                barmapAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
         slideup_panel.addPanelSlideListener(new SlidingUpPanelLayout.PanelSlideListener() {
             @Override
             public void onPanelSlide(View panel, float slideOffset)
@@ -188,7 +270,7 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
                 if(slideOffset < 0)
                 {return;}
 
-                float paddingOffset = (slideOffset*320+210);
+                float paddingOffset = (slideOffset*710+210);
                 mMap.setPadding(0,0,0, (int)paddingOffset);
 
                 return;
@@ -203,12 +285,17 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
                     {
                         if(newState == EXPANDED)
                         {
-                            mMap.setPadding(0,0,0, 530);
+                            mMap.setPadding(0,0,0, 920);
                         }
 
                         if(newState == COLLAPSED)
                         {
                             mMap.setPadding(0,0,0, 210);
+                        }
+
+                        if(newState == HIDDEN)
+                        {
+                            mMap.setPadding(0,0,0,0);
                         }
                     }
                 }
@@ -219,6 +306,11 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
+
+                editText_searchBar.clearFocus();
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+
+                imm.hideSoftInputFromWindow(getView().getWindowToken(),0);
 
                 slideup_panel.setPanelState(HIDDEN);
 
