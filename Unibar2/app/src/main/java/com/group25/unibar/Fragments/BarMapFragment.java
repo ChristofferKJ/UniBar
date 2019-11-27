@@ -5,15 +5,20 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.slidingpanelayout.widget.SlidingPaneLayout;
 
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -23,6 +28,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.internal.NavigationMenu;
@@ -36,6 +42,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import io.github.yavski.fabspeeddial.FabSpeedDial;
+
+import static android.content.ContentValues.TAG;
+import static com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState.COLLAPSED;
+import static com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState.DRAGGING;
+import static com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState.EXPANDED;
+import static com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState.HIDDEN;
 
 
 //                                                                          //
@@ -52,10 +64,9 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
     private TextView slideup_barname;
     private FabSpeedDial fab;
     private SlidingUpPanelLayout slideup_panel;
+    private Boolean night_mode_on;
 
-    public BarMapFragment() {
-    }
-
+    public BarMapFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,13 +74,10 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
 
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_bar_map, container, false);
-
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
         return rootView;
     }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -79,8 +87,6 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
         slideup_panel = getView().findViewById(R.id.barmap_sliding_up_panel);
 
         fab = (FabSpeedDial)getView().findViewById(R.id.barmap_fab);
-
-
     }
 
     // https://stackoverflow.com/questions/14851641/change-marker-size-in-google-maps-api-v2
@@ -94,7 +100,10 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap mMap) {
 
-        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(getContext(), R.raw.night_mode_maps_style));
+        night_mode_on = true;
+
+
         mMap.clear(); //clear old markers
         LatLng Aarhus = new LatLng(56.132939, 10.203921);
         CameraPosition googlePlex = CameraPosition.builder()
@@ -103,7 +112,7 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
                 .bearing(0)
                 .build();
 
-        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 3000, null);
+        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 500, null);
 
         CSVHelper csvHelper = new CSVHelper(getContext());
         try {
@@ -118,6 +127,7 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
                     .title(x.Name).icon(BitmapDescriptorFactory.fromBitmap(resizeMapIcons("unibar_maps_marker_png", 125, 125))));
         });
 
+
         fab.setMenuListener(new FabSpeedDial.MenuListener() {
             @Override
             public boolean onPrepareMenu(NavigationMenu navigationMenu) {
@@ -130,34 +140,35 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
                 switch (menuItem.getItemId())
                 {
                     case R.id.mapType_call:
-
-                        if(mMap.getMapType() == GoogleMap.MAP_TYPE_NORMAL) {
-                            mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                        if(night_mode_on)
+                        {
+                            mMap.setMapStyle(
+                                    MapStyleOptions.loadRawResourceStyle(
+                                            getContext(), R.raw.retro_map_style));
+                            night_mode_on = false;
                             return true;
                         }
-
-                        if (mMap.getMapType() == GoogleMap.MAP_TYPE_SATELLITE) {
-                            mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                        else
+                        {
+                            mMap.setMapStyle(
+                                    MapStyleOptions.loadRawResourceStyle(
+                                            getContext(), R.raw.night_mode_maps_style));
+                            night_mode_on = true;
                             return true;
                         }
-
-                        return true;
 
                     case R.id.searchBar_call:
                         return true;
 
                     case R.id.toUser_call:
                         return true;
-
                 }
 
                 mMap.setOnInfoWindowCloseListener(new GoogleMap.OnInfoWindowCloseListener() {
                     @Override
                     public void onInfoWindowClose(Marker marker) {
-                        slideup_panel.setPanelHeight(0);
                     }
                 });
-
                 return false;
             }
 
@@ -165,30 +176,74 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
             public void onMenuClosed() {
 
             }
+
+
         });
+
+        slideup_panel.addPanelSlideListener(new SlidingUpPanelLayout.PanelSlideListener() {
+            @Override
+            public void onPanelSlide(View panel, float slideOffset)
+            {
+
+                if(slideOffset < 0)
+                {return;}
+
+                float paddingOffset = (slideOffset*320+210);
+                mMap.setPadding(0,0,0, (int)paddingOffset);
+
+                return;
+            }
+
+            @Override
+            public void onPanelStateChanged(View panel, SlidingUpPanelLayout.PanelState previousState, SlidingUpPanelLayout.PanelState newState) {
+
+
+                switch (previousState) {
+                    case DRAGGING:
+                    {
+                        if(newState == EXPANDED)
+                        {
+                            mMap.setPadding(0,0,0, 530);
+                        }
+
+                        if(newState == COLLAPSED)
+                        {
+                            mMap.setPadding(0,0,0, 210);
+                        }
+                    }
+                }
+            }
+        });
+
 
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
 
+                slideup_panel.setPanelState(HIDDEN);
 
-
-                    slideup_panel.setPanelHeight(0);
+                mMap.setPadding(0,0,0,0);
             }
         });
-
 
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
-                slideup_panel.setPanelHeight(150);
+
+                if(slideup_panel.getPanelState() == HIDDEN) {
+                    slideup_panel.setPanelState(COLLAPSED);
+                }
+
+                if(slideup_panel.getPanelState() == EXPANDED) {
+                    slideup_barname.setText(marker.getTitle());
+                    return false;
+                }
+
+                slideup_panel.setPanelHeight(200);
                 slideup_barname.setText(marker.getTitle());
+                mMap.setPadding(0,0,0,210);
                 return false;
             }
         });
-
     }
-
-
-
 }
