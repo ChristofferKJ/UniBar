@@ -5,12 +5,14 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.slidingpanelayout.widget.SlidingPaneLayout;
 
 import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -44,6 +46,8 @@ import com.group25.unibar.Helpers.CSVHelper;
 import com.group25.unibar.R;
 import com.group25.unibar.adapter.BarmapAdapter;
 import com.group25.unibar.models.Bar;
+import com.group25.unibar.viewmodels.BarItemViewModel;
+import com.group25.unibar.viewmodels.MapViewModel;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.io.IOException;
@@ -76,8 +80,24 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
     private EditText editText_searchBar;
     private ListView listView_bars;
     private BarmapAdapter barmapAdapter;
+    private MapViewModel mapViewModel;
+    private Location myLocation;
 
     public BarMapFragment() { }
+
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mapViewModel = ViewModelProviders.of(this.getActivity()).get(MapViewModel.class);
+        mapViewModel.getSelected().observe(this, item -> {
+
+            myLocation = item;
+
+        });
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -197,6 +217,7 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
 
 
         });
+
 
         listView_bars.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
