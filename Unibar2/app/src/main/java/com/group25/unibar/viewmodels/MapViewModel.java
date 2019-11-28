@@ -15,7 +15,7 @@ public class MapViewModel extends ViewModel {
 
 
     public void setDeviceLocation(Location location) {
-        Log.d("Debug", "setDeviceLocation: updating device location");
+        Log.d("Debug", "setDeviceLocation: updating device location with " + location.getLatitude() + " " + location.getLongitude() );
         deviceLocation.setValue(location);
     }
 

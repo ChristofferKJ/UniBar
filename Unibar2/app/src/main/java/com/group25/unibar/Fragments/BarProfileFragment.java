@@ -29,6 +29,7 @@ public class BarProfileFragment extends Fragment implements View.OnClickListener
     Button reviewButton;
     Button checkInButton;
     private BarItemViewModel viewModel;
+    private MapViewModel mapViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

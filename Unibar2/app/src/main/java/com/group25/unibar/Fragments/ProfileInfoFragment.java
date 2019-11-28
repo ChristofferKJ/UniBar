@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,7 @@ public class ProfileInfoFragment extends Fragment {
     private String mParam1;
     ImageView profilePic;
     TextView name, faculty;
+    private MapViewModel mapViewModel;
 //    private OnFragmentInteractionListener mListener;
 
     public ProfileInfoFragment() {
@@ -58,6 +60,10 @@ public class ProfileInfoFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mapViewModel = ViewModelProviders.of(this.getActivity()).get(MapViewModel.class);
+        mapViewModel.getSelected().observe(this, location -> {
+            displayDetails(location);
+        });
 
 
     }
@@ -75,6 +81,9 @@ public class ProfileInfoFragment extends Fragment {
         return view;
     }
 
+    public void displayDetails(Location location){
+        Log.d("Debug", "displayDetails: setting location with " + location.getLatitude() + " " + location.getLongitude());
+    }
 
 //    // TODO: Rename method, update argument and hook method into UI event
 //    public void onButtonPressed(Uri uri) {
