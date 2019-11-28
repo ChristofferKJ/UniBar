@@ -28,7 +28,7 @@
     <!--Facebook -->
     <string name="facebook_app_id">779131162527402</string>
     <string name="fb_login_protocol_scheme">fb779131162527402</string>
-    <string name="facebook_sign_in">Sign in with Facebook</string>
+    <string name="facebook_sign_in">Continue with Facebook</string>
 
 
     <string-array name="faculty_arrays">
@@ -61,7 +61,6 @@
     <string name="MapTab">Map view</string>
     <string name="ListTab">Bar list</string>
     <string name="ProfileTab">Profile</string>
-
 
 
 </resources>

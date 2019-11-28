@@ -35,7 +35,9 @@ public class UserLocalStore {
         editor.putBoolean("loggedIn", loggedIn);
         editor.commit();
     }
-
+    public boolean getUserLoggedIn() {
+        return userLocalDatabase.getBoolean("loggedIn", false);
+    }
     public void clearUserData(){
         SharedPreferences.Editor editor = userLocalDatabase.edit();
         editor.clear();

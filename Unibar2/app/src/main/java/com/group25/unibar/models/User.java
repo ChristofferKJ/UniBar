@@ -9,4 +9,20 @@ public class User {
         this.email = email;
         this.image_url = image_url;
     }
+
+    public String getFirst_name() {
+        return first_name;
+    }
+
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getImage_url() {
+        return image_url;
+    }
 }
