@@ -82,7 +82,7 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
         super.onCreate(savedInstanceState);
 
         mapViewModel = ViewModelProviders.of(this.getActivity()).get(MapViewModel.class);
-        mapViewModel.getSelected().observe(this, item -> {
+        mapViewModel.getDeviceLocation().observe(this, item -> {
 
             myLocation = item;
 

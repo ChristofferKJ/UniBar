@@ -13,10 +13,13 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelStore;
+
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -25,30 +28,26 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.group25.unibar.activities.MainActivity;
+import com.group25.unibar.models.DeviceLocation;
 import com.group25.unibar.viewmodels.MapViewModel;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 
 // Made with inspiration from job service in assignment 2
 public class LocationProviderService extends Service {
 
-
-    MapViewModel viewModel;
+    public MapViewModel viewModel;
     private IBinder binder = new locationBinder();
-
 
     // http://www.androiddocs.com/training/location/receive-location-updates.html
     protected LocationRequest createLocationRequest() {
         LocationRequest mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(10000);
-        mLocationRequest.setFastestInterval(5000);
+        mLocationRequest.setInterval(20000);
+        mLocationRequest.setFastestInterval(15000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         return mLocationRequest;
     }
-
 
     private FusedLocationProviderClient fusedLocationClient;
 
@@ -68,18 +67,21 @@ public class LocationProviderService extends Service {
     public void onCreate() {
         super.onCreate();
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        viewModel = new MapViewModel();
 
         LocationRequest request = createLocationRequest();
         LocationCallback locationCallback = new LocationCallback() {
             @Override
             public void onLocationResult(LocationResult locationResult) {
                 if (locationResult == null) {
+                    Log.d("Debug", "onLocationResult: location equals null");
                     return;
                 }
                 for (Location location : locationResult.getLocations()) {
-                    // Update viewmodel with location data
-                    viewModel.setDeviceLocation(location);
+                    // Update location data
+                    if (location != null){
+                        Log.d("Debug", "onLocationResult: setting location " + location);
+                        DeviceLocation.getInstance().setDeviceLocation(location);
+                    }
                 }
             };
         };
