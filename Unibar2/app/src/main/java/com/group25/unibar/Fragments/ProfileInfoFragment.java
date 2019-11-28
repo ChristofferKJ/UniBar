@@ -20,6 +20,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.group25.unibar.R;
 import com.group25.unibar.activities.LoginActivity;
 import com.group25.unibar.models.User;
@@ -85,7 +86,7 @@ public class ProfileInfoFragment extends Fragment {
 
         textViewName.setText(loggedInUser.getFirst_name() + " " + loggedInUser.getLast_name());
         if (localStore.getUserLoggedIn()) {
-            Glide.with(getContext()).load(loggedInUser.getImage_url()).fallback(R.drawable.app_logo).into(profilePic);
+            Glide.with(getContext()).load(loggedInUser.getImage_url()).apply(RequestOptions.circleCropTransform()).fallback(R.drawable.app_logo).into(profilePic);
         }else {
             profilePic.setImageResource(R.drawable.app_logo);
             textViewName.setText("");
