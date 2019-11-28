@@ -3,15 +3,18 @@
     <item
         android:id="@+id/mapType_call"
         android:icon="@drawable/ic_maptype"
-        android:title="change map type"
-        android:iconTint="@color/primaryLightColor"
-        />
+        android:title="@string/change_map_type"
+        android:iconTint="@color/primaryLightColor" />
 
     <item
         android:id="@+id/searchBar_call"
         android:icon="@drawable/ic_search"
-        android:title="Search for bar"
-        android:iconTint="@color/primaryLightColor"
+        android:title="@string/search_bar"
+        android:iconTint="@color/primaryLightColor" />
 
-        />
+    <item
+        android:id="@+id/findUser_call"
+        android:icon="@drawable/ic_user"
+        android:title="@string/find_user"
+        android:iconTint="@color/primaryColor"/>
 </menu>
