@@ -58,8 +58,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hej tomme fragment</string>
     <string name="choose_faculty">Vælg fakultet</string>
-    <string name="search_bar">Søge felt..</string>
-
+    <string name="search_bar">Søg efter bar..</string>
+    <string name="change_map_type">Skift map type..</string>
+    <string name="find_user">Find egen lokation..</string>
 
     <!-- Tabs -->
     <string name="MapTab">Map view</string>
