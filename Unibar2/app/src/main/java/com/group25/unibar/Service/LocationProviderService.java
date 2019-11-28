@@ -142,7 +142,7 @@ public class LocationProviderService extends Service {
                 new NotificationCompat.Builder(this, "myChannel")
                         .setContentTitle(bar.getBarName())
                         .setContentText(round(distanceToBar*1000,2)+" m " + getString(R.string.NotificationContext))
-                        .setSmallIcon(R.mipmap.ic_launcher_round)
+                        .setSmallIcon(R.drawable.ic_sign_in_primary_color)
                         .setTicker("Ticker")
                         .setChannelId("myChannel")
                         .build();
