@@ -213,6 +213,9 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
 
                     case R.id.findUser_call:
 
+                        if(myLocation == null)
+                            return true; 
+
                         LatLng userLocation = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
                         CameraPosition cam = CameraPosition.builder()
                                 .target(userLocation)
