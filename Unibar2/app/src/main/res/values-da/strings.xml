@@ -65,4 +65,5 @@
     <string name="MapTab">Map view</string>
     <string name="ListTab">Bar liste</string>
     <string name="ProfileTab">Profil</string>
+    <string name="NotificationContext">væk fra dig lige nu!</string>
 </resources>
