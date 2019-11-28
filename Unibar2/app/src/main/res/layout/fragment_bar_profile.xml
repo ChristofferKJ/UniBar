@@ -11,12 +11,16 @@
         <ScrollView
             android:id="@+id/scrollView2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
                     android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                         <ImageView
@@ -91,7 +95,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayoutButtons"
-            android:layout_width="413dp"
+            android:layout_width="0dp"
             android:layout_height="55dp"
             android:layout_marginTop="626dp"
             android:layout_marginBottom="16dp"
@@ -107,17 +111,25 @@
 
                 <Button
                     android:id="@+id/button_Review"
-                    android:layout_width="100dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
                     android:layout_weight="1.0"
-                    android:text="@string/review_label" />
+                    android:background="@drawable/transparent_border_button"
+                    android:text="@string/review_label"
+                    android:textColor="@android:color/white" />
 
                 <Button
                     android:id="@+id/button_CheckIn"
-                    android:layout_width="100dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
                     android:layout_weight="1.0"
-                    android:text="@string/button_check_in_label" />
+                    android:background="@drawable/transparent_border_button"
+                    android:text="@string/button_check_in_label"
+                    android:textColor="@android:color/white" />
         </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

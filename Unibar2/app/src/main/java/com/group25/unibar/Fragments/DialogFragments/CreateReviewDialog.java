@@ -1,5 +1,7 @@
 package com.group25.unibar.Fragments.DialogFragments;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -71,6 +73,7 @@ public class CreateReviewDialog extends DialogFragment implements View.OnClickLi
             }
         });
 
+        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         return v;
     }
 

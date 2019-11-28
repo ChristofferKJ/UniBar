@@ -68,12 +68,9 @@ import static com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState.HIDDEN;
 
 
 //                                                                          //
-//                                                                          //
-//                                                                          //
 // INSPIRATION FRA https://demonuts.com/android-google-map-in-fragment/     //
 //                                                                          //
-//                                                                          //
-//                                                                          //
+
 
 public class BarMapFragment extends Fragment implements OnMapReadyCallback {
 
@@ -88,7 +85,6 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
     private BarItemViewModel barItemViewModel;
     private UserLocalStore usl;
 
-    private Marker userPosition;
     private Location myLocation;
 
     public BarMapFragment() {
@@ -99,23 +95,19 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.d(TAG, "onCreate: her kalder vi");
-
-
         barItemViewModel = ViewModelProviders.of((FragmentActivity) getContext()).get(BarItemViewModel.class);
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // Inflate the layout for this fragment
+        // Inflate layout
         View rootView = inflater.inflate(R.layout.fragment_bar_map, container, false);
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        // Loads all bars in the singleton BarsDb
         bars = BarsDb.getInstance().get_barList();
 
         return rootView;
@@ -131,13 +123,11 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
         listView_bars = getView().findViewById(R.id.listview_barnames);
         barmapAdapter = new BarmapAdapter(getContext(), bars);
         listView_bars.setAdapter(barmapAdapter);
-
         fab = (FabSpeedDial) getView().findViewById(R.id.barmap_fab);
-
-
     }
 
     // https://stackoverflow.com/questions/14851641/change-marker-size-in-google-maps-api-v2
+
     public Bitmap resizeMapIcons(String iconName, int width, int height) {
         Bitmap imageBitmap = BitmapFactory.decodeResource(getResources(), getResources().getIdentifier(iconName, "drawable", getContext().getPackageName()));
         Bitmap resizedBitmap = Bitmap.createScaledBitmap(imageBitmap, width, height, false);
@@ -167,8 +157,9 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
         });
 
         usl = new UserLocalStore(getContext());
+
         // Setting up current user location
-        MarkerOptions a = new MarkerOptions().zIndex(100f).position(new LatLng(0, 0)).icon(BitmapDescriptorFactory.fromBitmap(resizeMapIcons("user_maps_marker", 100,100))).title(usl.getLoggedInUser().getFirst_name());
+        MarkerOptions a = new MarkerOptions().zIndex(100f).position(new LatLng(0, 0)).icon(BitmapDescriptorFactory.fromBitmap(resizeMapIcons("user_maps_marker", 100, 100))).title(usl.getLoggedInUser().getFirst_name());
         Marker m = mMap.addMarker(a);
 
         DeviceLocation.getInstance().getDeviceLocation().observe(this, location -> {
@@ -179,6 +170,7 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
         });
 
 
+        //Fab dial menu items
         fab.setMenuListener(new FabSpeedDial.MenuListener() {
             @Override
             public boolean onPrepareMenu(NavigationMenu navigationMenu) {
@@ -213,6 +205,9 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
 
                     case R.id.findUser_call:
 
+                        if (myLocation == null)
+                            return true;
+
                         LatLng userLocation = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
                         CameraPosition cam = CameraPosition.builder()
                                 .target(userLocation)
@@ -220,70 +215,55 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
                                 .bearing(0)
                                 .build();
                         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cam), 500, null);
-
                 }
-
-                mMap.setOnInfoWindowCloseListener(new GoogleMap.OnInfoWindowCloseListener() {
-                    @Override
-                    public void onInfoWindowClose(Marker marker) {
-                    }
+                mMap.setOnInfoWindowCloseListener(marker -> {
                 });
                 return false;
             }
 
             @Override
             public void onMenuClosed() {
-
             }
         });
 
 
-        listView_bars.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        //When clicking a bar in the search listview, it will zoom to position of bar
+        listView_bars.setOnItemClickListener((parent, view, position, id) -> {
 
-                BarInfo tempBar = bars.get(position);
+            BarInfo tempBar = bars.get(position);
+            slideup_barname.setText(tempBar.getBarName());
+            LatLng tempbarLatLng = new LatLng(tempBar.getLatitude(), tempBar.getLongitude());
 
-                slideup_barname.setText(tempBar.getBarName());
+            CameraPosition cam = CameraPosition.builder()
+                    .target(tempbarLatLng)
+                    .zoom(18)
+                    .bearing(0)
+                    .build();
 
-                LatLng tempbarLatLng = new LatLng(tempBar.getLatitude(), tempBar.getLongitude());
-
-                CameraPosition cam = CameraPosition.builder()
-                        .target(tempbarLatLng)
-                        .zoom(18)
-                        .bearing(0)
-                        .build();
-
-                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cam), 500, null);
-
-            }
+            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cam), 500, null);
         });
 
+        //When clicking markers, the app will navigate to the bar profile view
+        mMap.setOnInfoWindowClickListener(marker -> {
+            if (marker.getTitle().equals(usl.getLoggedInUser().getFirst_name()))
+                return;
 
-        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
-            @Override
-            public void onInfoWindowClick(Marker marker) {
+            BarInfo tempBar = new BarInfo();
+            String selectedBarName = slideup_barname.getText().toString();
 
+            for (BarInfo bar : BarsDb.getInstance().get_barList()) {
 
-                if(marker.getTitle().equals(usl.getLoggedInUser().getFirst_name()))
-                    return;
-
-                BarInfo tempBar = new BarInfo();
-                String selectedBarName = slideup_barname.getText().toString();
-
-                for (BarInfo bar : BarsDb.getInstance().get_barList()) {
-
-                    if (bar.getBarName().equals(selectedBarName)) {
-                        tempBar = bar;
-                        break;
-                    }
+                if (bar.getBarName().equals(selectedBarName)) {
+                    tempBar = bar;
+                    break;
                 }
-
-                barItemViewModel.select(tempBar);
-                Navigation.findNavController(getView()).navigate(R.id.action_tabFragment_to_barProfileFragment);
             }
+
+            barItemViewModel.select(tempBar);
+            Navigation.findNavController(getView()).navigate(R.id.action_tabFragment_to_barProfileFragment);
         });
 
+        //Search for bar in slideup view
         editText_searchBar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -326,6 +306,8 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
         });
 
         slideup_panel.addPanelSlideListener(new SlidingUpPanelLayout.PanelSlideListener() {
+
+            //Do something when panel slides
             @Override
             public void onPanelSlide(View panel, float slideOffset) {
 
@@ -339,6 +321,7 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
                 return;
             }
 
+            //Do something when states change
             @Override
             public void onPanelStateChanged(View panel, SlidingUpPanelLayout.PanelState previousState, SlidingUpPanelLayout.PanelState newState) {
 
@@ -362,39 +345,35 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
         });
 
 
-        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-            @Override
-            public void onMapClick(LatLng latLng) {
+        //Do something when map (NOT markers) are pressed
+        mMap.setOnMapClickListener(latLng -> {
 
-                editText_searchBar.clearFocus();
-                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+            editText_searchBar.clearFocus();
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
 
-                imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
+            imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
 
-                slideup_panel.setPanelState(HIDDEN);
+            slideup_panel.setPanelState(HIDDEN);
 
-                mMap.setPadding(0, 0, 0, 0);
-            }
+            mMap.setPadding(0, 0, 0, 0);
         });
 
-        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-            @Override
-            public boolean onMarkerClick(Marker marker) {
+        //Do something when markers are pressed
+        mMap.setOnMarkerClickListener(marker -> {
 
-                if (slideup_panel.getPanelState() == HIDDEN) {
-                    slideup_panel.setPanelState(COLLAPSED);
-                }
+            if (slideup_panel.getPanelState() == HIDDEN) {
+                slideup_panel.setPanelState(COLLAPSED);
+            }
 
-                if (slideup_panel.getPanelState() == EXPANDED) {
-                    slideup_barname.setText(marker.getTitle());
-                    return false;
-                }
-
-                slideup_panel.setPanelHeight(200);
+            if (slideup_panel.getPanelState() == EXPANDED) {
                 slideup_barname.setText(marker.getTitle());
-                mMap.setPadding(0, 0, 0, 210);
                 return false;
             }
+
+            slideup_panel.setPanelHeight(200);
+            slideup_barname.setText(marker.getTitle());
+            mMap.setPadding(0, 0, 0, 210);
+            return false;
         });
     }
 }

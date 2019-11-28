@@ -36,5 +36,14 @@
     <style name="TabLayoutStyle" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">10dp</item>
     </style>
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/primaryDarkColor</item>
+        <item name="colorControlActivated">#ffffff</item>
+    </style>
+    <style name="BarRating" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/ratingbar_icon</item>
+        <item name="android:minHeight">40dip</item>
+        <item name="android:maxHeight">40dip</item>
 
+    </style>
 </resources>

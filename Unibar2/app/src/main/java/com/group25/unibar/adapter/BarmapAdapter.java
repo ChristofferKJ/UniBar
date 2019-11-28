@@ -15,8 +15,10 @@ import com.group25.unibar.models.BarInfo;
 
 import java.util.ArrayList;
 
-public class BarmapAdapter extends ArrayAdapter<BarInfo> {
 
+//Used for the searchlist in the barmap view.
+
+public class BarmapAdapter extends ArrayAdapter<BarInfo> {
 
 
     Context context;

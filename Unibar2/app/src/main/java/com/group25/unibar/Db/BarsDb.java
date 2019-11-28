@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 //https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples
 // Thread safe example
+//Makes a singleton, thread safe, class to hold all bars in a list
 
 public class BarsDb
 {
