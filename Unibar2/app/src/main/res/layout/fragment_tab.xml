@@ -14,13 +14,13 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="?actionBarSize"
-            app:tabBackground="@color/primaryColor"
+            android:layout_height="60dp"
+            android:background="#B9FFFFFF"
             app:tabGravity="fill"
             app:tabIndicatorColor="@color/primaryDarkColor"
             app:tabIndicatorHeight="4dp"
-            app:tabMode="fixed" />
+            app:tabMode="fixed"
+            app:tabTextAppearance="@style/TabLayoutStyle"/>
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager"
@@ -31,5 +31,6 @@
         </androidx.viewpager.widget.ViewPager>
     </LinearLayout>
 
-
 </FrameLayout>
+
+

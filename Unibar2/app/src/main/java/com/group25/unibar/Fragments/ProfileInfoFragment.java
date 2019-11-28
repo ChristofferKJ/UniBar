@@ -2,6 +2,14 @@ package com.group25.unibar.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.content.Context;
+import android.location.Location;
+import android.net.Uri;
+import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +42,6 @@ public class ProfileInfoFragment extends Fragment {
     Button buttonLogout;
     // TODO: Rename and change types of parameters
     private String mParam1;
-
 //    private OnFragmentInteractionListener mListener;
 
     public ProfileInfoFragment() {
@@ -55,9 +62,12 @@ public class ProfileInfoFragment extends Fragment {
         return fragment;
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
     }
 
@@ -96,6 +106,7 @@ public class ProfileInfoFragment extends Fragment {
         });
         return view;
     }
+
 
 //    // TODO: Rename method, update argument and hook method into UI event
 //    public void onButtonPressed(Uri uri) {
