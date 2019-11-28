@@ -87,12 +87,18 @@ public class BarInfoListFragment extends Fragment {
             barInfoAdapter = new BarInfoAdapter(getContext(), barInfoList);
         }
 
-        // If device is tablet, make 4 columns instead of 2. Inspiration found here: https://stackoverflow.com/questions/40157799/correctly-detect-android-device-type/40219432
         if((getContext().getResources().getConfiguration().screenLayout
                 & Configuration.SCREENLAYOUT_SIZE_MASK)
             >= Configuration.SCREENLAYOUT_SIZE_LARGE){
+            // If device is tablet, make 4 columns instead of 2. Inspiration found here: https://stackoverflow.com/questions/40157799/correctly-detect-android-device-type/40219432
+
             layoutManager = new GridLayoutManager(getContext(), 4);
-        } else {
+        } else if(getParentFragment().toString().contains("ProfileInfoFragment")){
+            // If the fragment is shown in profileinfofragment, only show 1 column
+            layoutManager = new GridLayoutManager(getContext(), 1);
+        }
+        else {
+            // Default column count: 2
             layoutManager = new GridLayoutManager(getContext(), 2);
         }
 
