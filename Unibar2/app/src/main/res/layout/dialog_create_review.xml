@@ -1,39 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:background="@drawable/review_background"
     android:gravity="center|center_horizontal"
-    android:padding="24dp"
-    android:background="@color/primaryColor">
+    android:orientation="vertical"
+    android:padding="24dp">
 
     <TextView
         android:id="@+id/textViewBarName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/bar_name_placeholder"
-        android:textSize="28sp"
         android:paddingBottom="24dp"
-        />
+        android:text="@string/bar_name_placeholder"
+        android:textColor="@android:color/white"
+        android:textSize="28sp" />
 
     <RatingBar
         android:id="@+id/ratingBar"
-        android:layout_width="match_parent"
+        style="@style/BarRating"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numStars="5"
-        android:stepSize="1"/>
+
+        android:stepSize="1"
+        android:theme="@style/RatingBar" />
+    <!--        -->
 
     <TextView
         android:id="@+id/textViewReviewLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/write_review" />
+        android:text="@string/write_review"
+        android:textColor="@android:color/white" />
 
     <EditText
         android:id="@+id/editTextBarReview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
+        android:background="@android:color/white"
         android:ems="10"
         android:gravity="top|left"
         android:importantForAutofill="no"
@@ -45,5 +53,8 @@
         android:id="@+id/buttonReview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/review_label" />
+        android:layout_marginTop="@dimen/keyline_1_minus_8dp"
+        android:background="@drawable/transparent_border_button"
+        android:text="@string/review_label"
+        android:textColor="@android:color/white" />
 </LinearLayout>
