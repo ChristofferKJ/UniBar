@@ -65,5 +65,8 @@
     <string name="ListTab">Bar list</string>
     <string name="ProfileTab">Profile</string>
 
+    <!-- LocationService -->
+    <string name="NotificationContext"> away from you right now!</string>
+
 
 </resources>
