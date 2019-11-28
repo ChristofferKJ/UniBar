@@ -21,44 +21,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
-///**
-// * A simple {@link Fragment} subclass.
-// * Activities that contain this fragment must implement the
-// * {@link BarInfoListFragment.OnFragmentInteractionListener} interface
-// * to handle interaction events.
-// * Use the {@link BarInfoListFragment#newInstance} factory method to
-// * create an instance of this fragment.
-// */
 public class BarInfoListFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     List<BarInfo> barInfoList;
     List<BarInfo> randomBarsList;
     private BarItemViewModel viewModel;
     public BarInfoAdapter barInfoAdapter;
     private GridLayoutManager layoutManager;
 
-//    private OnFragmentInteractionListener mListener;
 
     public BarInfoListFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @return A new instance of fragment BarInfoListFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static BarInfoListFragment newInstance() {
         BarInfoListFragment fragment = new BarInfoListFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,7 +82,6 @@ public class BarInfoListFragment extends Fragment {
             // Default column count: 2
             layoutManager = new GridLayoutManager(getContext(), 2);
         }
-
         recyclerView.setLayoutManager(layoutManager);
 
         recyclerView.setAdapter(barInfoAdapter);

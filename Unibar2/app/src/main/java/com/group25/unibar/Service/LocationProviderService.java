@@ -1,13 +1,13 @@
 package com.group25.unibar.Service;
 
-import android.Manifest;
+
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
+
 import android.location.Location;
 import android.os.Binder;
 import android.os.Build;
@@ -18,13 +18,6 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
-import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.lifecycle.ViewModelStore;
-
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -129,8 +122,6 @@ public class LocationProviderService extends Service {
             distanceToBar = distance(bar.getLatitude(),bar.getLongitude(),deviceLat, deviceLon);
         }
 
-        Log.d("Debug", "startRandomBarDistanceNotifications: distance to bar " + String.valueOf(distanceToBar));
-
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) { //needed because channels are not supported on older versions
             NotificationChannel mChannel = new NotificationChannel("myChannel", "Visible myChannel", NotificationManager.IMPORTANCE_LOW);
             NotificationManager mNotificationManager =
@@ -147,7 +138,6 @@ public class LocationProviderService extends Service {
                         .setChannelId("myChannel")
                         .build();
 
-        //calling Android to
         startForeground(NOTIFY_ID, notification);
     }
 

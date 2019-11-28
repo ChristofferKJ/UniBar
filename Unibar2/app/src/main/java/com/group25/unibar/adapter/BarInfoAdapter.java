@@ -39,11 +39,9 @@ public class BarInfoAdapter extends RecyclerView.Adapter<BarInfoAdapter.BarInfoV
             barName = (TextView) view.findViewById(R.id.barName_barInfoList);
             description = (TextView) view.findViewById(R.id.barDescription_barInfoList);
             barImage = (ImageView) view.findViewById(R.id.barImage_barInfoList);
-            //barRating = (TextView) view.findViewById(R.id.barRating_barInfoList);
 
         }
     }
-
 
     @NonNull
     @Override
@@ -65,12 +63,10 @@ public class BarInfoAdapter extends RecyclerView.Adapter<BarInfoAdapter.BarInfoV
         holder.itemView.setOnClickListener(view -> {
             Log.d("Debug", "onClick: you clicked bar with position " + position);
             viewModel.select(bar);
-            Navigation.findNavController(view).navigate(R.id.action_tabFragment_to_barProfileFragment); // TODO Navigate on aciton?
+            Navigation.findNavController(view).navigate(R.id.action_tabFragment_to_barProfileFragment);
 
         });
 
-        // TODO display something on image click
-        //holder.barImage.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_profileInfoFragment2_to_barProfileFragment));
     }
 
 
@@ -81,9 +77,7 @@ public class BarInfoAdapter extends RecyclerView.Adapter<BarInfoAdapter.BarInfoV
 
     public BarInfoAdapter(Context mContext, List<BarInfo> barList) {
         this.mContext = mContext;
-        Log.d("TEST", mContext.toString());
         this.barList = barList;
-
         viewModel = ViewModelProviders.of((FragmentActivity) mContext).get(BarItemViewModel.class);
     }
 

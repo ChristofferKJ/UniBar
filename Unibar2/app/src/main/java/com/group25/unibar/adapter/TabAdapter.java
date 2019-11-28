@@ -24,7 +24,7 @@ public class TabAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position){
-            case 0: // Insert map view fragment TODO
+            case 0:
                 BarMapFragment mapFragment = new BarMapFragment();
                 return mapFragment;
 
