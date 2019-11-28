@@ -1,6 +1,7 @@
 package com.group25.unibar.Fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,7 +57,7 @@ public class BarInfoListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Log.d("Debug", "onCreate: barinfolist");
         barInfoList = new ArrayList<>();
         barInfoList = BarsDb.getInstance().get_barList();
 
