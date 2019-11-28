@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common strings -->
+    <string name="app_name">Unibar</string>
+    <string name="title_login">Login</string>
+    <string name="title_main_activity">Unibar</string>
+    <string name="title_sign_in">Log Ind</string>
+    <string name="title_sign_up">Tilmeld</string>
+    <string name="sign_in_unibar">Log ind med UniBar</string>
+    <string name="lorem_ipsum">    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+        do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+        nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+        deserunt mollit anim id est laborum.
+</string>
+
+    <!-- Login Flow -->
+    <string name="sign_in">Log ind</string>
+    <string name="sign_out">Log ud</string>
+    <string name="sign_up">Tilmeld</string>
+    <string name="username">Brugernavn</string>
+    <string name="password">Adgangskode</string>
+    <string name="confirm_password">Bekræft adgangskode</string>
+    <string name="email">E-mail</string>
+    <string name="dont_have_a_user">Har du ikke en bruger? Tryk her for at tilmelde dig!</string>
+    <string name="favoritebarlist_barlist">Favorit barer!</string>
+
+    <!--Facebook -->
+    <string name="facebook_app_id">779131162527402</string>
+    <string name="fb_login_protocol_scheme">fb779131162527402</string>
+    <string name="facebook_sign_in">Fortsæt med Facebook</string>
+
+
+    <string-array name="faculty_arrays">
+        <item>Science and Technology</item>
+        <item>Health</item>
+        <item>Arts</item>
+        <item>Aarhus BSS</item>
+    </string-array>
+
+    <!-- BarProfile -->
+    <string name="bar_image">Unibar</string>
+    <string name="bar_name_placeholder">Bar navn</string>
+    <string name="bar_description_label">Beskrivelse</string>
+    <string name="bar_review_label">Anmeldelser</string>
+    <string name="review_label">Anmeld</string>
+    <string name="button_check_in_label">Check in</string>
+    <string name="write_review">Skriv en anmeldelse for denne bar</string>
+
+
+    <!-- UserProfile -->
+    <string name="ProfileName_profileInfo">Mock fakultet</string>
+    <string name="ProfileFaculty_profileInfo">Mock navn</string>
+    <string name="try_these_bars">Har du prøvet en af disse fredagsbarer?</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hej tomme fragment</string>
+    <string name="choose_faculty">Vælg fakultet</string>
+    <string name="search_bar">Søge felt..</string>
+
+
+    <!-- Tabs -->
+    <string name="MapTab">Map view</string>
+    <string name="ListTab">Bar liste</string>
+    <string name="ProfileTab">Profil</string>
+</resources>
