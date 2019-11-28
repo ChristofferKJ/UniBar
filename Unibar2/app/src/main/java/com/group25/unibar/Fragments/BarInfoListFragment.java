@@ -33,7 +33,9 @@ public class BarInfoListFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     List<BarInfo> barInfoList;
+    List<BarInfo> randomBarsList;
     private BarItemViewModel viewModel;
+    public BarInfoAdapter barInfoAdapter;
 
 //    private OnFragmentInteractionListener mListener;
 
@@ -77,9 +79,12 @@ public class BarInfoListFragment extends Fragment {
             int min = 0;
             int max = 29;
             int randomNumber = r.nextInt(max-min) + min;
-            barInfoList = barInfoList.subList(randomNumber, randomNumber + 4);
+            randomBarsList = barInfoList.subList(randomNumber, randomNumber + 4);
+            barInfoAdapter = new BarInfoAdapter(getContext(), randomBarsList);
+        }else {
+            barInfoAdapter = new BarInfoAdapter(getContext(), barInfoList);
         }
-        BarInfoAdapter barInfoAdapter = new BarInfoAdapter(getContext(), barInfoList);
+
         Log.d("TEST AF PARENTFRAGMENT", getParentFragment().toString());
 
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
