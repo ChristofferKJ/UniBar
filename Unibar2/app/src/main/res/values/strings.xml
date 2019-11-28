@@ -44,6 +44,8 @@
     <!-- UserProfile -->
     <string name="ProfileName_profileInfo">Mock faculty</string>
     <string name="ProfileFaculty_profileInfo">Mock name</string>
+    <string name="try_these_bars">Have you tried these bars?</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
