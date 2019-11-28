@@ -81,7 +81,6 @@ public class BarInfoAdapter extends RecyclerView.Adapter<BarInfoAdapter.BarInfoV
 
     public BarInfoAdapter(Context mContext, List<BarInfo> barList) {
         this.mContext = mContext;
-        Log.d("TEST", mContext.toString());
         this.barList = barList;
 
         viewModel = ViewModelProviders.of((FragmentActivity) mContext).get(BarItemViewModel.class);

@@ -73,7 +73,6 @@ public class BarProfileFragment extends Fragment implements View.OnClickListener
 
             case R.id.button_CheckIn:
                 Log.d("BarProfileFragment", "Check In Pressed");
-
                 // TODO: Create check in functionality
                 break;
 

@@ -20,6 +20,7 @@ import okhttp3.Response;
 
 public class CreateReviewViewModel extends ViewModel {
 
+    // Url til vores api
     public String url= "https://unibarapi.azurewebsites.net/api/barreviews";
 
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
@@ -33,7 +34,7 @@ public class CreateReviewViewModel extends ViewModel {
         OkHttpClient client = new OkHttpClient();
         Gson gson = new Gson();
 
-
+        // Parse object to JSON
         String jsonParsedReview = gson.toJson(review);
 
         Log.d("CreateReviewViewModel", "Parsed the object to json: " + jsonParsedReview);
