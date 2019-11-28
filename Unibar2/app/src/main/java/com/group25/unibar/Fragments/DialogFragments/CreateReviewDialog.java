@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.group25.unibar.R;
 import com.group25.unibar.models.BarInfo;
 import com.group25.unibar.models.Review;
+import com.group25.unibar.models.UserLocalStore;
 import com.group25.unibar.viewmodels.BarItemViewModel;
 import com.group25.unibar.viewmodels.CreateReviewViewModel;
 
@@ -79,12 +80,13 @@ public class CreateReviewDialog extends DialogFragment implements View.OnClickLi
             case R.id.buttonReview:
                 // Checks if the user has given the bar a rating, otherwise dismisses the dialog.
                 if(review.getRating() != 0.0) {
+                    UserLocalStore localStore = new UserLocalStore(getContext());
                     Log.d("CreateReviewDialog", "Creating a review!");
 
                     review.setDescription(barReviewText.getText().toString());
                     review.setBarName(barName.getText().toString());
-                    // TODO: Marius Get the current user and insert it here
-                    review.setUsername("Festaben");
+                    
+                    review.setUsername(localStore.getLoggedInUser().getFirst_name()+ " " + localStore.getLoggedInUser().getLast_name());
 
                     // Posting the review to db via our viewmodel
                     try {
