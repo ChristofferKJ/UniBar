@@ -9,6 +9,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+
+//Made with inspiration from assignment 1.
+//Loads in all the Bars from the CSV file in assets and parses them to Bar objects.
+
 public class CSVHelper {
 
     private final Context context;
