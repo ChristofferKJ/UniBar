@@ -1,5 +1,7 @@
 package com.group25.unibar.Fragments;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.content.Context;
 import android.location.Location;
 import android.net.Uri;
@@ -11,11 +13,17 @@ import androidx.lifecycle.ViewModelProviders;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+
+import com.bumptech.glide.Glide;
 import com.group25.unibar.R;
-import com.group25.unibar.viewmodels.MapViewModel;
+import com.group25.unibar.activities.LoginActivity;
+import com.group25.unibar.models.User;
+import com.group25.unibar.models.UserLocalStore;
 
 
 ///**
@@ -29,10 +37,11 @@ import com.group25.unibar.viewmodels.MapViewModel;
 public class ProfileInfoFragment extends Fragment {
 
 
+    ImageView profilePic;
+    TextView textViewName;
+    Button buttonLogout;
     // TODO: Rename and change types of parameters
     private String mParam1;
-    ImageView profilePic;
-    TextView name, faculty;
 //    private OnFragmentInteractionListener mListener;
 
     public ProfileInfoFragment() {
@@ -66,12 +75,35 @@ public class ProfileInfoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        UserLocalStore localStore = new UserLocalStore(getContext());
+        User loggedInUser = (User) localStore.getLoggedInUser();
 
         View view = inflater.inflate(R.layout.fragment_profile_info, container, false);
         profilePic = view.findViewById(R.id.ProfileImage_profileInfo);
-        name = view.findViewById(R.id.ProfileName_profileInfo);
-        faculty = view.findViewById(R.id.ProfileFaculty_profileInfo);
-        profilePic.setImageResource(R.drawable.billede);
+        textViewName = view.findViewById(R.id.ProfileName_profileInfo);
+        buttonLogout = view.findViewById(R.id.buttonLogout);
+
+        textViewName.setText(loggedInUser.getFirst_name() + " " + loggedInUser.getLast_name());
+        if (localStore.getUserLoggedIn()) {
+            Glide.with(getContext()).load(loggedInUser.getImage_url()).fallback(R.drawable.app_logo).into(profilePic);
+        }else {
+            profilePic.setImageResource(R.drawable.app_logo);
+            textViewName.setText("");
+        }
+        buttonLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                localStore.clearUserData();
+                localStore.setUserLoggedIn(false);
+
+
+
+
+                Intent myIntent = new Intent(getActivity(), LoginActivity.class);
+                startActivityForResult(myIntent, 1);
+                getActivity().finish();
+            }
+        });
         return view;
     }
 
