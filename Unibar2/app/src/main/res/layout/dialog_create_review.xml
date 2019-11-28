@@ -33,12 +33,13 @@
         android:id="@+id/editTextBarReview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFFFF"
         android:ems="10"
+        android:gravity="top|left"
         android:importantForAutofill="no"
         android:inputType="textMultiLine"
         android:lines="5"
-        android:background="#FFFFFF"
-        android:gravity="top|left"/>
+        android:padding="5dp" />
 
     <Button
         android:id="@+id/buttonReview"
