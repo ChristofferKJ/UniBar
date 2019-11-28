@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/primaryLightColor">
+        >
 
         <LinearLayout
             android:id="@+id/linearLayoutProfileInfo"
@@ -25,12 +25,12 @@
                 tools:srcCompat="@tools:sample/avatars[2]" />
 
             <LinearLayout
-                android:layout_width="213dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/ProfileFaculty_profileInfo"
+                    android:id="@+id/ProfileName_profileInfo"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginLeft="5dp"
@@ -39,19 +39,33 @@
                     android:layout_marginBottom="5dp"
                     android:padding="5dp"
                     android:text="@string/ProfileFaculty_profileInfo"
-                    android:textColor="@color/primaryTextColor"/>
+                    android:textColor="@color/primaryDarkColor" />
 
-                <TextView
-                    android:id="@+id/ProfileName_profileInfo"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:padding="5dp"
-                    android:text="@string/ProfileName_profileInfo"
-                    android:textColor="@color/primaryTextColor"/>
+                <Button
+                    android:id="@+id/buttonLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center"
+                    android:background="@drawable/transparent_border_button"
+                    android:drawableLeft="@drawable/ic_sign_in_icon_test"
+                    android:drawablePadding="8dp"
+                    android:inputType="textCapSentences"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="Logout"
+                    android:textColor="@android:color/white" />
+                <!--                <TextView-->
+                <!--                    android:id="@+id/ProfileFaculty_profileInfo"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="60dp"-->
+                <!--                    android:layout_marginLeft="5dp"-->
+                <!--                    android:layout_marginTop="5dp"-->
+                <!--                    android:layout_marginRight="5dp"-->
+                <!--                    android:layout_marginBottom="5dp"-->
+                <!--                    android:padding="5dp"-->
+                <!--                    android:text="@string/ProfileName_profileInfo"-->
+                <!--                    android:textColor="@color/primaryTextColor"/>-->
 
             </LinearLayout>
 
@@ -69,8 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/favoritebarlist_barlist"
-            android:textColor="@color/primaryTextColor"
+            android:text="@string/try_these_bars"
             android:textSize="18sp" />
 
         <fragment

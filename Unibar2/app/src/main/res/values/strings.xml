@@ -5,6 +5,7 @@
     <string name="title_main_activity">Unibar</string>
     <string name="title_sign_in">Sign In</string>
     <string name="title_sign_up">Sign Up</string>
+    <string name="sign_in_unibar">Sign in with UniBar</string>
     <string name="lorem_ipsum">    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
         do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -23,6 +24,12 @@
     <string name="email">E-mail</string>
     <string name="dont_have_a_user">Dont have a user? Click here to sign up!</string>
     <string name="favoritebarlist_barlist">Favorite Bars!</string>
+
+    <!--Facebook -->
+    <string name="facebook_app_id">779131162527402</string>
+    <string name="fb_login_protocol_scheme">fb779131162527402</string>
+    <string name="facebook_sign_in">Continue with Facebook</string>
+
 
     <string-array name="faculty_arrays">
         <item>Science and Technology</item>
@@ -44,6 +51,8 @@
     <!-- UserProfile -->
     <string name="ProfileName_profileInfo">Mock faculty</string>
     <string name="ProfileFaculty_profileInfo">Mock name</string>
+    <string name="try_these_bars">Have you tried these bars?</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -55,7 +64,6 @@
     <string name="MapTab">Map view</string>
     <string name="ListTab">Bar list</string>
     <string name="ProfileTab">Profile</string>
-
 
 
 </resources>

@@ -18,6 +18,7 @@ import com.group25.unibar.viewmodels.BarItemViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 ///**
@@ -32,7 +33,9 @@ public class BarInfoListFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     List<BarInfo> barInfoList;
+    List<BarInfo> randomBarsList;
     private BarItemViewModel viewModel;
+    public BarInfoAdapter barInfoAdapter;
 
 //    private OnFragmentInteractionListener mListener;
 
@@ -69,8 +72,20 @@ public class BarInfoListFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_bar_info_list, container, false);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        BarInfoAdapter barInfoAdapter = new BarInfoAdapter(getContext(), barInfoList);
 
+        if(getParentFragment().toString().contains("ProfileInfoFragment")){
+            Log.d("BarInfoListFragment", "Finding 4 random bars for you!");
+            Random r = new Random();
+            int min = 0;
+            int max = 29;
+            int randomNumber = r.nextInt(max-min) + min;
+            randomBarsList = barInfoList.subList(randomNumber, randomNumber + 4);
+            barInfoAdapter = new BarInfoAdapter(getContext(), randomBarsList);
+        }else {
+            barInfoAdapter = new BarInfoAdapter(getContext(), barInfoList);
+        }
+
+        Log.d("TEST AF PARENTFRAGMENT", getParentFragment().toString());
 
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);

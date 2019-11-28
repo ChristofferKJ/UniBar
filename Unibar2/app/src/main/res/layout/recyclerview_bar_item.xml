@@ -19,7 +19,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="284dp"
-            android:background="@color/primaryColor">
+            >
 
             <ImageView
                 android:id="@+id/barImage_barInfoList"
@@ -46,7 +46,7 @@
                 android:layout_marginBottom="5dp"
                 android:text="TextView"
                 android:textSize="18sp"
-                android:textColor="@color/primaryTextColor"/>
+                />
 
             <TextView
                 android:id="@+id/barDescription_barInfoList"
@@ -60,7 +60,6 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
                 android:text="TextView"
-                android:textColor="@color/primaryTextColor"
                 android:textSize="14sp" />
 
 

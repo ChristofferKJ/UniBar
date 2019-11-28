@@ -37,6 +37,7 @@ public class CSVHelper {
             tempBar.setLatitude(Float.valueOf(barStrings[1]));
             tempBar.setLongitude(Float.valueOf(barStrings[2]));
             tempBar.setImage_url(barStrings[3]);
+            tempBar.setDescription(barStrings[4]);
             bars.add(tempBar);
         }
 
