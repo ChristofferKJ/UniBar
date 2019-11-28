@@ -64,6 +64,11 @@
     <string name="MapTab">Map view</string>
     <string name="ListTab">Bar list</string>
     <string name="ProfileTab">Profile</string>
+    <string name="change_map_type">change map type..</string>
+    <string name="find_user">Find user location..</string>
+
+    <!-- LocationService -->
+    <string name="NotificationContext"> away from you right now!</string>
 
 
 </resources>
