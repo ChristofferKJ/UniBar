@@ -67,5 +67,8 @@
     <string name="change_map_type">change map type..</string>
     <string name="find_user">Find user location..</string>
 
+    <!-- LocationService -->
+    <string name="NotificationContext"> away from you right now!</string>
+
 
 </resources>
