@@ -39,7 +39,7 @@
                     android:layout_marginBottom="5dp"
                     android:padding="5dp"
                     android:text="@string/ProfileFaculty_profileInfo"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryDarkColor" />
 
                 <Button
                     android:id="@+id/buttonLogout"

@@ -4,11 +4,13 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.location.Location;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 
 import com.group25.unibar.Db.BarsDb;
 import com.group25.unibar.Helpers.CSVHelper;
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         unbindService(connection);
         mBound = false;
     }
+
 
     /**
      * Defines callbacks for service binding, passed to bindService()
