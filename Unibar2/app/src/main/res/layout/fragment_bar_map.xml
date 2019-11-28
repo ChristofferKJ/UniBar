@@ -21,6 +21,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
+
+
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -42,10 +44,17 @@
         android:id="@+id/barmap_fab"
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/primaryTextColor"
+        android:id="@+id/debug_text"
+        android:gravity="center_vertical"/>
+
 
 </FrameLayout>
     <LinearLayout
-        android:background="#B9FFFFFF"
+        android:background="#FFFFFF"
         android:layout_height="350dp"
         android:layout_width="match_parent"
         android:orientation="vertical"

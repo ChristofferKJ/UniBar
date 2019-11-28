@@ -10,7 +10,24 @@ public class BarInfo {
     private double rating;
     private ArrayList<Review> reviews;
     private String image_url;
+    private Float Latitude;
+    private Float Longitude;
 
+    public Float getLatitude() {
+        return Latitude;
+    }
+
+    public void setLatitude(Float latitude) {
+        Latitude = latitude;
+    }
+
+    public Float getLongitude() {
+        return Longitude;
+    }
+
+    public void setLongitude(Float longitude) {
+        Longitude = longitude;
+    }
 
     public BarInfo() {
         this.id = "default";
@@ -18,6 +35,8 @@ public class BarInfo {
         this.barName = "Barname";
         this.reviews = new ArrayList<>();
         this.image_url = "";
+        this.Latitude = 0f;
+        this.Longitude = 0f;
     }
 
     // Constructor

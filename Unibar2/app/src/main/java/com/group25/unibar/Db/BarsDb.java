@@ -1,6 +1,6 @@
 package com.group25.unibar.Db;
 
-import com.group25.unibar.models.Bar;
+import com.group25.unibar.models.BarInfo;
 
 import java.util.ArrayList;
 
@@ -14,9 +14,14 @@ public class BarsDb
 
     private BarsDb(){}
 
-    private ArrayList<Bar> _barList;
+    private ArrayList<BarInfo> _barList;
 
-    public ArrayList<Bar> get_barList()
+    public void set_barList(ArrayList<BarInfo> bars)
+    {
+        _barList = bars;
+    }
+
+    public ArrayList<BarInfo> get_barList()
     {
         return _barList;
     }

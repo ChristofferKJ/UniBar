@@ -18,6 +18,9 @@ import com.group25.unibar.R;
 import com.group25.unibar.models.BarInfo;
 import com.group25.unibar.models.Review;
 import com.group25.unibar.viewmodels.BarItemViewModel;
+import com.group25.unibar.viewmodels.CreateReviewViewModel;
+
+import java.io.IOException;
 
 
 // https://developer.android.com/reference/android/app/DialogFragment
@@ -29,15 +32,20 @@ public class CreateReviewDialog extends DialogFragment implements View.OnClickLi
     TextView barName;
     EditText barReviewText;
 
-    private BarItemViewModel viewModel;
+
+    private BarItemViewModel barItemViewModel;
+    private CreateReviewViewModel createReviewViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = ViewModelProviders.of(this.getActivity()).get(BarItemViewModel.class);
-        viewModel.getSelected().observe(this, item -> {
+        barItemViewModel = ViewModelProviders.of(this.getActivity()).get(BarItemViewModel.class);
+        barItemViewModel.getSelected().observe(this, item -> {
             displayDetails(item);
         });
+
+        createReviewViewModel = ViewModelProviders.of(this.getActivity()).get(CreateReviewViewModel.class);
+
     }
 
     @Override
@@ -59,10 +67,8 @@ public class CreateReviewDialog extends DialogFragment implements View.OnClickLi
                                         boolean fromUser) {
                 Log.d("CreateReviewDialog", "Rating is: " + rating);
                 review.setRating(rating);
-
             }
         });
-
 
         return v;
     }
@@ -77,10 +83,15 @@ public class CreateReviewDialog extends DialogFragment implements View.OnClickLi
 
                     review.setDescription(barReviewText.getText().toString());
                     review.setBarName(barName.getText().toString());
-                    // TODO: Get the current user and insert it here
+                    // TODO: Marius Get the current user and insert it here
                     review.setUsername("Festaben");
 
-                    // TODO: Make a HTTPPut to put the review onto the database
+                    // Posting the review to db via our viewmodel
+                    try {
+                        createReviewViewModel.postReview(review);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
                     Log.d("CreateReviewDialog", "Review for bar:" + review.getBarName());
                     Log.d("CreateReviewDialog", "Review Description:" + review.getDescription());
@@ -89,7 +100,6 @@ public class CreateReviewDialog extends DialogFragment implements View.OnClickLi
                 }else {
                     Log.d("CreateReviewDialog", "No rating set. Dismissing the dialog without making a review.");
                 }
-
                 dismiss();
                 break;
 
