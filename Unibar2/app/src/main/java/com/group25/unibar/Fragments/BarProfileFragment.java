@@ -1,6 +1,5 @@
 package com.group25.unibar.Fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
@@ -19,7 +19,6 @@ import com.group25.unibar.Fragments.DialogFragments.CreateReviewDialog;
 import com.group25.unibar.R;
 import com.group25.unibar.models.BarInfo;
 import com.group25.unibar.viewmodels.BarItemViewModel;
-import com.group25.unibar.viewmodels.MapViewModel;
 
 public class BarProfileFragment extends Fragment implements View.OnClickListener {
 
@@ -34,9 +33,8 @@ public class BarProfileFragment extends Fragment implements View.OnClickListener
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = ViewModelProviders.of(this.getActivity()).get(BarItemViewModel.class);
-        viewModel.getSelected().observe(this, item -> {
-            displayDetails(item);
-        });
+        viewModel.getSelected().observe(this, item ->
+                displayDetails(item));
 
     }
 
@@ -56,6 +54,11 @@ public class BarProfileFragment extends Fragment implements View.OnClickListener
         checkInButton.setOnClickListener(this);
 
         return v;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
     }
 
     @Override
