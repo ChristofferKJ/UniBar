@@ -74,7 +74,7 @@ import static com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState.HIDDEN;
 
 public class BarMapFragment extends Fragment implements OnMapReadyCallback {
 
-    private ArrayList<BarInfo> bars;
+    private ArrayList<BarInfo> bars = new ArrayList<>();
     private TextView slideup_barname;
     private FabSpeedDial fab;
     private SlidingUpPanelLayout slideup_panel;
@@ -107,15 +107,17 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        // Loads all bars in the singleton BarsDb
-        bars = BarsDb.getInstance().get_barList();
+
 
         return rootView;
     }
 
+
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
 
         slideup_barname = getView().findViewById(R.id.slideup_barname);
         slideup_panel = getView().findViewById(R.id.barmap_sliding_up_panel);
@@ -124,6 +126,8 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
         barmapAdapter = new BarmapAdapter(getContext(), bars);
         listView_bars.setAdapter(barmapAdapter);
         fab = (FabSpeedDial) getView().findViewById(R.id.barmap_fab);
+
+
     }
 
     // https://stackoverflow.com/questions/14851641/change-marker-size-in-google-maps-api-v2
@@ -141,7 +145,10 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
         mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(getContext(), R.raw.night_mode_maps_style));
         night_mode_on = true;
 
-        mMap.clear(); //clear old markers
+        mMap.clear();
+        bars.clear();
+        bars.addAll(BarsDb.getInstance().get_barList());
+
         LatLng Aarhus = new LatLng(56.132939, 10.203921);
         CameraPosition googlePlex = CameraPosition.builder()
                 .target(Aarhus)
@@ -296,6 +303,7 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
                 barmapAdapter.clear();
                 barmapAdapter.addAll(tempList);
                 barmapAdapter.notifyDataSetChanged();
+
 
             }
 
