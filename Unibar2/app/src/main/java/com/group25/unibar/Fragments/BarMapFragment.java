@@ -5,10 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
-
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -17,18 +15,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -46,22 +40,12 @@ import com.group25.unibar.R;
 import com.group25.unibar.adapter.BarmapAdapter;
 import com.group25.unibar.models.BarInfo;
 import com.group25.unibar.models.DeviceLocation;
-import com.group25.unibar.models.User;
 import com.group25.unibar.models.UserLocalStore;
 import com.group25.unibar.viewmodels.BarItemViewModel;
-import com.group25.unibar.viewmodels.MapViewModel;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
-
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
-
 import io.github.yavski.fabspeeddial.FabSpeedDial;
-
-import static android.content.ContentValues.TAG;
 import static com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState.COLLAPSED;
 import static com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState.EXPANDED;
 import static com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelState.HIDDEN;
@@ -90,7 +74,6 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
     public BarMapFragment() {
     }
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,8 +89,6 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
         View rootView = inflater.inflate(R.layout.fragment_bar_map, container, false);
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
-
 
         return rootView;
     }
@@ -284,7 +265,6 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
                     bars.clear();
                     bars.addAll(csvHelper.CsvToBars("Barlist_med_koordinater.csv"));
 
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -297,14 +277,11 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
 
                     if (s1.contains(s2))
                         tempList.add(bar);
-
                 }
 
                 barmapAdapter.clear();
                 barmapAdapter.addAll(tempList);
                 barmapAdapter.notifyDataSetChanged();
-
-
             }
 
             @Override
@@ -352,17 +329,12 @@ public class BarMapFragment extends Fragment implements OnMapReadyCallback {
             }
         });
 
-
         //Do something when map (NOT markers) are pressed
         mMap.setOnMapClickListener(latLng -> {
-
             editText_searchBar.clearFocus();
             InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
-
             imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
-
             slideup_panel.setPanelState(HIDDEN);
-
             mMap.setPadding(0, 0, 0, 0);
         });
 
