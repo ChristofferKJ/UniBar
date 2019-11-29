@@ -18,51 +18,10 @@
         android:contentDescription="@string/app_name"
         android:src="@drawable/unibarlogo_narrow" />
 
-<!--    <EditText-->
-<!--        android:id="@+id/editTextUsername"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:ems="10"-->
-<!--        android:hint="@string/email"-->
-<!--        android:importantForAutofill="no"-->
-<!--        android:inputType="textEmailAddress" />-->
-
-<!--    <EditText-->
-<!--        android:id="@+id/editTextPassword"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:layout_marginBottom="16dp"-->
-<!--        android:ems="10"-->
-<!--        android:hint="@string/password"-->
-<!--        android:importantForAutofill="no"-->
-<!--        android:inputType="textPassword" />-->
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-<!--        <Button-->
-<!--            android:id="@+id/buttonSignIn"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:layout_marginTop="32dp"-->
-<!--            android:layout_marginBottom="16dp"-->
-<!--            android:background="@drawable/transparent_border_button"-->
-<!--            android:drawableLeft="@drawable/ic_sign_in_icon_test"-->
-<!--            android:drawablePadding="8dp"-->
-<!--            android:elevation="8dp"-->
-<!--            android:inputType="textCapSentences"-->
-<!--            android:padding="8dp"-->
-<!--            android:paddingStart="12dp"-->
-<!--            android:paddingLeft="8dp"-->
-<!--            android:paddingTop="8dp"-->
-<!--            android:paddingEnd="20dp"-->
-<!--            android:paddingRight="8dp"-->
-<!--            android:text="@string/sign_in_unibar"-->
-<!--            android:textColor="@android:color/white" />-->
 
         <Button
             android:id="@+id/buttonFacebookSignIn"
@@ -81,22 +40,6 @@
             android:text="@string/facebook_sign_in"
             android:textColor="@android:color/white" />
 
-        <!--        <com.facebook.login.widget.LoginButton-->
-        <!--            android:id="@+id/login_button"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_gravity="center_horizontal"-->
-        <!--            android:layout_marginTop="30dp"-->
-        <!--            android:layout_marginBottom="30dp" />-->
     </LinearLayout>
-
-<!--    <TextView-->
-<!--        android:id="@+id/textViewSignUp"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:clickable="true"-->
-<!--        android:focusable="true"-->
-<!--        android:gravity="center"-->
-<!--        android:text="@string/dont_have_a_user" />-->
 
 </LinearLayout>

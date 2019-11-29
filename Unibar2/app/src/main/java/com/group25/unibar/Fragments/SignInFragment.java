@@ -47,46 +47,19 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-//        if (new UserLocalStore(getContext()).getUserLoggedIn()){
-//            Intent myIntent = new Intent(getActivity(), MainActivity.class);
-//            startActivityForResult(myIntent, 1);
-//
-//            getActivity().finish();
-//        }
+
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_sign_in, container, false);
         tokenTracker.startTracking();
         email = v.findViewById(R.id.editTextUsername);
         password = v.findViewById(R.id.editTextPassword);
-//        sign_in = v.findViewById(R.id.buttonSignIn);
-//        sign_up = v.findViewById(R.id.textViewSignUp);
         fb_login = v.findViewById(R.id.buttonFacebookSignIn);
 
-//        sign_in.setOnClickListener(this);
-//        sign_up.setOnClickListener(this);
         fb_login.setOnClickListener(this);
 
         //Facebook login callback
         callbackManager = CallbackManager.Factory.create();
 
-
-//            LoginManager.getInstance().registerCallback(callbackManager,
-//                new FacebookCallback<LoginResult>() {
-//                    @Override
-//                    public void onSuccess(LoginResult loginResult) {
-//                        // App code
-//                    }
-//
-//                    @Override
-//                    public void onCancel() {
-//                        // App code
-//                    }
-//
-//                    @Override
-//                    public void onError(FacebookException exception) {
-//                        // App code
-//                    }
-//                });
 
         return v;
     }
@@ -104,6 +77,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
                 //User is logged out
                 Log.d(TAG, "onCurrentAccessTokenChanged: null");
             } else {
+                //user logged in
                 loadUserProfile(currentAccessToken);
                 Log.d(TAG, "onCurrentAccessTokenChanged: "+ currentAccessToken.toString());
             }
@@ -137,21 +111,6 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-//            case R.id.buttonSignIn:
-//                Log.d("SignInFragment", "Sign In Pressed");
-//
-//                 TODO: Make login logic here
-//
-//                Intent myIntent = new Intent(getActivity(), MainActivity.class);
-//
-//                startActivityForResult(myIntent, 1);
-//                getActivity().finish();
-//                break;
-
-//            case R.id.textViewSignUp:
-//                Log.d("SignInFragment", "Sign Up Pressed");
-//                Navigation.findNavController(view).navigate(R.id.action_signInFragment_to_signUpActivity);
-//                break;
             case  R.id.buttonFacebookSignIn:
                 LoginManager.getInstance().logIn(this, Arrays.asList("public_profile"));
 
