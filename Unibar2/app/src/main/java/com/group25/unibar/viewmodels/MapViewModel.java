@@ -15,15 +15,10 @@ public class MapViewModel extends ViewModel {
 
 
     public void setDeviceLocation(Location location) {
-        Log.d("Debug", "setDeviceLocation: updating device location with " + location.getLatitude() + " " + location.getLongitude() );
         deviceLocation.setValue(location);
     }
 
     public LiveData<Location> getDeviceLocation() {
-        if (deviceLocation.getValue() != null){
-            Log.d("Debug", "getDeviceLocation: returning location with " + deviceLocation.getValue().getLatitude());
-        }
-        //Log.d("Debug", "getDeviceLocation: returning location with " + deviceLocation.getValue().getLatitude());
         return deviceLocation;
     }
 

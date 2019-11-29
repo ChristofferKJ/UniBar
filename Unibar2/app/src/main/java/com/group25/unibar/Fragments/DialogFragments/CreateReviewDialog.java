@@ -26,7 +26,7 @@ import com.group25.unibar.viewmodels.CreateReviewViewModel;
 import java.io.IOException;
 
 
-// https://developer.android.com/reference/android/app/DialogFragment
+// Inspiration found at: https://developer.android.com/reference/android/app/DialogFragment
 public class CreateReviewDialog extends DialogFragment implements View.OnClickListener {
 
     Review review = new Review();
@@ -54,7 +54,6 @@ public class CreateReviewDialog extends DialogFragment implements View.OnClickLi
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.dialog_create_review, container, false);
 
         reviewButton = v.findViewById(R.id.buttonReview);
@@ -64,7 +63,7 @@ public class CreateReviewDialog extends DialogFragment implements View.OnClickLi
 
         reviewButton.setOnClickListener(this);
 
-        // https://www.mkyong.com/android/android-rating-bar-example/
+        // Inspiration for ratingBar found at: https://www.mkyong.com/android/android-rating-bar-example/
         ratingBarStars.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             public void onRatingChanged(RatingBar ratingBar, float rating,
                                         boolean fromUser) {
